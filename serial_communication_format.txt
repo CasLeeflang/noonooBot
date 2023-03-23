@@ -1,0 +1,43 @@
+
+communication parameters:
+
+
+data format:
+
+	      (start)			      (stop)
+	send: [byte1][byte2][byte_n][byte_end_communication]
+	
+	byte_end_communication = '\n' = 0x0A
+
+	float: 4 - bytes
+	  (sending bytes to from lowside byte to the highside byte)
+
+
+
+
+
+rasberry pi sending data:
+   cmd_data data order:
+	- linear velocity x(float, 4bytes)
+	- rotational velocity z(float, 4bytes)
+
+		(start)           													(stop)
+   send: [lnr_vel_byte1][lnr_vel_byte2][lnr_vel_byte3][lnr_vel_byte4][rot_vel_byte1][rot_vel_byte2][rot_vel_byte3][rot_vel_byte4][byte_end_communication]
+
+
+
+arduino sending data:
+   actual_data data order:
+  	- x-pos	(float, 4bytes)
+	- y-pos	(float, 4bytes)
+	- z-rot	(float, 4bytes)
+
+
+	    (start)																		(stop)
+   send: [xpos_byte1][xpos_byte2][xpos_byte3][xpos_byte4][ypos_byte1][ypos_byte2][ypos_byte3][ypos_byte4][zrot_byte1][zrot_byte2][zrot_byte3][zrot_byte4][byte_end_communication]
+
+
+
+
+
+
