@@ -5,7 +5,7 @@ arduino = serial.Serial(port='/dev/ttyACM0', baudrate=115200, timeout=.1)
 
 
 def write_read():
-    time.sleep(1)
+    # time.sleep(1)
     data = arduino.readline()
     return data
 

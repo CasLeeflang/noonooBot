@@ -1,18 +1,20 @@
 import serial
 import time
+# import keyboard
 
-arduino = serial.Serial(port='/dev/ttyACM1', baudrate=115200, timeout=.1)
+arduino = serial.Serial(port='/dev/ttyACM0', baudrate=115200, timeout=.1)
 
 angular_z = float(0.0)
 
 linear_x = float(0.0)
 
 
-def write_read(x):
-    arduino.write(bytes(x, 'utf-8'))
-    time.sleep(0.05)
-    data = arduino.readline()
-    return data
+def write_to_serial(x):
+    if (x):
+        arduino.write(bytes(x, 'utf-8'))
+        time.sleep(0.05)
+        data = arduino.readline()
+        return data
 
 
 def convert_input(input):
@@ -35,8 +37,13 @@ def convert_input(input):
         linear_x) + ' Angular velocity (z): ' + str(angular_z)
 
 
+# keyboard.add_hotkey('enter', lambda: function_x())
+
+# def function_x():
+#     print('You pressed enter!')
+
 while True:
-    num = input()  # Taking input from user
-    print(convert_input(num))
-    value = write_read(num)
+    message = convert_input(input())  # Taking input from user
+    print(message)
+    value = write_to_serial(message)
     print(value)  # printing the value
