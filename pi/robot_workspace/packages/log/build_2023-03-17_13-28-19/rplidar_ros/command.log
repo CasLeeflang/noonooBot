@@ -1,0 +1,6 @@
+Invoking command in '/home/pi/robot_workspace/packages/build/rplidar_ros': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/pi/robot_workspace/packages/src/rplidar_ros2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi/robot_workspace/packages/install/rplidar_ros
+Invoked command in '/home/pi/robot_workspace/packages/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/pi/robot_workspace/packages/src/rplidar_ros2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi/robot_workspace/packages/install/rplidar_ros
+Invoking command in '/home/pi/robot_workspace/packages/build/rplidar_ros': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/pi/robot_workspace/packages/build/rplidar_ros -- -j4 -l4
+Invoked command in '/home/pi/robot_workspace/packages/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/pi/robot_workspace/packages/build/rplidar_ros -- -j4 -l4
+Invoking command in '/home/pi/robot_workspace/packages/build/rplidar_ros': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/pi/robot_workspace/packages/build/rplidar_ros
+Invoked command in '/home/pi/robot_workspace/packages/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/pi/robot_workspace/packages/build/rplidar_ros
