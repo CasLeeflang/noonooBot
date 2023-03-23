@@ -1,6 +1,7 @@
 import serial
 import time
-# import keyboard
+import numpy as np
+import struct
 
 arduino = serial.Serial(port='/dev/ttyACM0', baudrate=115200, timeout=.1)
 
@@ -37,13 +38,18 @@ def convert_input(input):
         linear_x) + ' Angular velocity (z): ' + str(angular_z)
 
 
-# keyboard.add_hotkey('enter', lambda: function_x())
+def float_to_hex(f):
+    hex_conversion = hex(struct.unpack('>I', struct.pack('>f', f))[0])
+    hex_conversion = hex_conversion.split('x')[1]
+    zfill = hex_conversion.zfill(8)
+    return zfill
 
-# def function_x():
-#     print('You pressed enter!')
 
 while True:
     message = convert_input(input())  # Taking input from user
     print(message)
-    value = write_to_serial(message)
-    print(value)  # printing the value
+
+    twist = float_to_hex(linear_x) + float_to_hex(angular_z) + '0x0a'
+
+    print(twist)
+    write_to_serial(twist)
