@@ -42,6 +42,8 @@ float setPWM;
 unsigned long previousTime;
 unsigned long previousTime2;
 
+unsigned long previousTimeOdometry;
+
 
 
 // global odemetry variables
@@ -54,6 +56,7 @@ void setup() {
   //pinMode(mot_in2, OUTPUT);
 
   previousTime = millis();
+  previousTimeOdometry = millis();
   // = millis();
   Serial.begin(9600);
 
@@ -101,6 +104,14 @@ void loop() {
     Serial.println(enc2.GetAngularVelocity());
     previousTime = millis();
 
+  }
+
+
+  // 50 ms interval odometry pose update
+  if((millis() - previousTimeOdometry) >= 50)
+  {
+    EstimatePose(enc1.GetAngularVelocity(), enc2.GetAngularVelocity());
+    previousTimeOdometry = millis();
   }
 
   /*
