@@ -2,7 +2,7 @@
 #include "Encoder.h"
 #include "PID.h"
 #include "Motor.h"
-#include "SpeedConversion.h"
+#include "Odometry.h"
 
 #define encA_pin 2
 #define encB_pin 3
@@ -42,6 +42,11 @@ float setPWM;
 unsigned long previousTime;
 unsigned long previousTime2;
 
+
+
+// global odemetry variables
+// float 
+
 void setup() {
   // set motor to full spin
   //pinMode(pwmM_mot, OUTPUT);
@@ -70,7 +75,7 @@ void setup() {
   //tone(40, 320);
   // put your setup code here, to run once:
   //setMotorPWM(-32);
-  CommandVelocity(0.0, 0.25, setpointLeft, setpointRight);
+  CommandVelocity(1.0, 0.0, setpointLeft, setpointRight);
 }
 
 
@@ -97,6 +102,18 @@ void loop() {
     previousTime = millis();
 
   }
+
+  /*
+
+  if(// interval - 50ms)
+  {
+    float speed1 = enc1.speed;
+    float speed2 = enc1.speed;
+
+    // odemetry(speed1, speed2);
+    
+
+  } */
 
 /*
   //actualRPM = filter(enc1.GetRPM());
