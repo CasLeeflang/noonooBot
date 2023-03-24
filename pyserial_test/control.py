@@ -9,6 +9,8 @@ angular_z = float(0.0)
 
 linear_x = float(0.0)
 
+increment = float(0.1)
+
 
 def write_to_serial(x):
     if (x):
@@ -22,13 +24,13 @@ def convert_input(input):
     global angular_z
     global linear_x
     if input == 'w':
-        linear_x += 0.1
+        linear_x += increment
     elif input == 's':
-        linear_x -= 0.1
+        linear_x -= increment
     elif input == 'a':
-        angular_z -= 0.1
+        angular_z -= increment
     elif input == 'd':
-        angular_z += 0.1
+        angular_z += increment
     elif input == 'q':
         linear_x = 0.0
         angular_z = 0.0
@@ -39,7 +41,7 @@ def convert_input(input):
 
 
 def float_to_hex(f):
-    hex_conversion = hex(struct.unpack('>I', struct.pack('>f', f))[0])
+    hex_conversion = hex(struct.unpack('<I', struct.pack('<f', f))[0])
     hex_conversion = hex_conversion.split('x')[1]
     zfill = hex_conversion.zfill(8)
     return zfill
