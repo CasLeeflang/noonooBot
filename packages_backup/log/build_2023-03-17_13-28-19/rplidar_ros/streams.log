@@ -1,0 +1,333 @@
+[0.054s] Invoking command in '/home/pi/robot_workspace/packages/build/rplidar_ros': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/pi/robot_workspace/packages/src/rplidar_ros2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi/robot_workspace/packages/install/rplidar_ros
+[0.322s] -- The C compiler identification is GNU 9.4.0
+[0.537s] -- The CXX compiler identification is GNU 9.4.0
+[0.553s] -- Check for working C compiler: /usr/bin/cc
+[0.838s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.841s] -- Detecting C compiler ABI info
+[1.114s] -- Detecting C compiler ABI info - done
+[1.150s] -- Detecting C compile features
+[1.151s] -- Detecting C compile features - done
+[1.159s] -- Check for working CXX compiler: /usr/bin/c++
+[1.458s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[1.462s] -- Detecting CXX compiler ABI info
+[1.772s] -- Detecting CXX compiler ABI info - done
+[1.812s] -- Detecting CXX compile features
+[1.814s] -- Detecting CXX compile features - done
+[1.832s] -- Found ament_cmake_auto: 0.9.11 (/opt/ros/foxy/share/ament_cmake_auto/cmake)
+[1.967s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[1.967s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[2.654s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.851s] -- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+[3.409s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.463s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[3.990s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[4.214s] -- Found FastRTPS: /opt/ros/foxy/include  
+[4.734s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.983s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[4.988s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.992s] -- Looking for pthread.h
+[5.281s] -- Looking for pthread.h - found
+[5.282s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[5.578s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[5.580s] -- Looking for pthread_create in pthreads
+[5.815s] -- Looking for pthread_create in pthreads - not found
+[5.816s] -- Looking for pthread_create in pthread
+[6.103s] -- Looking for pthread_create in pthread - found
+[6.107s] -- Found Threads: TRUE  
+[7.494s] -- Configuring done
+[7.559s] -- Generating done
+[7.565s] -- Build files have been written to: /home/pi/robot_workspace/packages/build/rplidar_ros
+[7.596s] Invoked command in '/home/pi/robot_workspace/packages/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/pi/robot_workspace/packages/src/rplidar_ros2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/pi/robot_workspace/packages/install/rplidar_ros
+[7.606s] Invoking command in '/home/pi/robot_workspace/packages/build/rplidar_ros': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/pi/robot_workspace/packages/build/rplidar_ros -- -j4 -l4
+[7.795s] [35m[1mScanning dependencies of target rplidar_composition_node[0m
+[8.016s] [ 11%] [32mBuilding CXX object CMakeFiles/rplidar_composition_node.dir/src/rplidar_node.cpp.o[0m
+[8.021s] [ 22%] [32mBuilding CXX object CMakeFiles/rplidar_composition_node.dir/sdk/src/arch/linux/net_serial.cpp.o[0m
+[8.026s] [ 33%] [32mBuilding CXX object CMakeFiles/rplidar_composition_node.dir/sdk/src/arch/linux/net_socket.cpp.o[0m
+[8.056s] [ 44%] [32mBuilding CXX object CMakeFiles/rplidar_composition_node.dir/sdk/src/arch/linux/timer.cpp.o[0m
+[8.703s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:36[m[K:
+[8.705s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/include/rplidar_node.hpp:50:[m[K [01;35m[Kwarning: [m[K"M_PI" redefined
+[8.706s]    50 | #define M_PI 3.1415926535897932384626433832795
+[8.707s]       | 
+[8.708s] In file included from [01m[K/usr/include/c++/9/cmath:45[m[K,
+[8.709s]                  from [01m[K/opt/ros/foxy/include/libstatistics_collector/moving_average_statistics/types.hpp:18[m[K,
+[8.710s]                  from [01m[K/opt/ros/foxy/include/libstatistics_collector/collector/generate_statistics_message.hpp:24[m[K,
+[8.711s]                  from [01m[K/opt/ros/foxy/include/rclcpp/topic_statistics/subscription_topic_statistics.hpp:23[m[K,
+[8.712s]                  from [01m[K/opt/ros/foxy/include/rclcpp/subscription.hpp:50[m[K,
+[8.713s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:25[m[K,
+[8.714s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[8.716s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[8.729s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[8.730s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[8.730s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[8.731s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[8.732s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[8.733s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/include/rplidar_node.hpp:34[m[K,
+[8.734s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:36[m[K:
+[8.734s] [01m[K/usr/include/math.h:1070:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+[8.735s]  1070 | # define M_PI  3.14159265358979323846 /* pi */
+[8.736s]       | 
+[9.908s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar.h:39[m[K,
+[9.909s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/src/sdkcommon.h:48[m[K,
+[9.910s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_socket.cpp:10[m[K:
+[9.911s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar_protocol.h:59:14:[m[K [01;35m[Kwarning: [m[KISO C++ forbids zero-size array ‘[01m[Kdata[m[K’ [[01;35m[K-Wpedantic[m[K]
+[9.912s]    59 |     _u8 data[[01;35m[K0[m[K];
+[9.913s]       |              [01;35m[K^[m[K
+[9.916s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar.h:40[m[K,
+[9.916s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/src/sdkcommon.h:48[m[K,
+[9.917s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_socket.cpp:10[m[K:
+[9.918s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar_cmd.h:260:18:[m[K [01;35m[Kwarning: [m[KISO C++ forbids zero-size array ‘[01m[Kpayload[m[K’ [[01;35m[K-Wpedantic[m[K]
+[9.919s]   260 |     _u8  payload[[01;35m[K0[m[K];
+[9.920s]       |                  [01;35m[K^[m[K
+[9.988s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_socket.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::arch::net::StreamSocketImpl::send(const void*, size_t)[m[K’:
+[9.989s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_socket.cpp:438:17:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[9.990s]   438 |         if ([01;35m[Kans == (int)len[m[K) {
+[9.991s]       |             [01;35m[K~~~~^~~~~~~~~~~[m[K
+[10.007s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/src/arch/linux/arch_linux.h:42[m[K,
+[10.008s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/src/sdkcommon.h:40[m[K,
+[10.009s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_socket.cpp:10[m[K:
+[10.010s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_socket.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::arch::net::DGramSocketImpl::sendTo(const rp::net::SocketAddress&, const void*, size_t)[m[K’:
+[10.011s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_socket.cpp:726:24:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[10.012s]   726 |             assert([01;35m[Kans == (int)len[m[K);
+[10.013s]       |                    [01;35m[K~~~~^~~~~~~~~~~[m[K
+[10.317s] [ 55%] [32mBuilding CXX object CMakeFiles/rplidar_composition_node.dir/sdk/src/hal/thread.cpp.o[0m
+[10.605s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_serial.cpp:[m[K In member function ‘[01m[Kbool rp::arch::net::raw_serial::open(const char*, uint32_t, uint32_t)[m[K’:
+[10.606s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_serial.cpp:97:74:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kflags[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[10.607s]    97 | bool raw_serial::open(const char * portname, uint32_t baudrate, [01;35m[Kuint32_t flags[m[K)
+[10.608s]       |                                                                 [01;35m[K~~~~~~~~~^~~~~[m[K
+[10.610s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_serial.cpp:[m[K In member function ‘[01m[Kvirtual void rp::arch::net::raw_serial::flush(_u32)[m[K’:
+[10.611s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_serial.cpp:281:30:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kflags[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[10.617s]   281 | void raw_serial::flush( [01;35m[K_u32 flags[m[K)
+[10.618s]       |                         [01;35m[K~~~~~^~~~~[m[K
+[10.618s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_serial.cpp:[m[K In member function ‘[01m[Kvirtual int rp::arch::net::raw_serial::waitforsent(_u32, size_t*)[m[K’:
+[10.619s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_serial.cpp:286:34:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktimeout[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[10.620s]   286 | int raw_serial::waitforsent([01;35m[K_u32 timeout[m[K, size_t * returned_size)
+[10.621s]       |                             [01;35m[K~~~~~^~~~~~~[m[K
+[10.622s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_serial.cpp:[m[K In member function ‘[01m[Kvirtual int rp::arch::net::raw_serial::waitforrecv(_u32, size_t*)[m[K’:
+[10.623s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/arch/linux/net_serial.cpp:292:34:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktimeout[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[10.624s]   292 | int raw_serial::waitforrecv([01;35m[K_u32 timeout[m[K, size_t * returned_size)
+[10.625s]       |                             [01;35m[K~~~~~^~~~~~~[m[K
+[10.999s] [ 66%] [32mBuilding CXX object CMakeFiles/rplidar_composition_node.dir/sdk/src/rplidar_driver.cpp.o[0m
+[12.196s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar.h:39[m[K,
+[12.197s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/src/sdkcommon.h:48[m[K,
+[12.197s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/hal/thread.cpp:35[m[K:
+[12.199s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar_protocol.h:59:14:[m[K [01;35m[Kwarning: [m[KISO C++ forbids zero-size array ‘[01m[Kdata[m[K’ [[01;35m[K-Wpedantic[m[K]
+[12.200s]    59 |     _u8 data[[01;35m[K0[m[K];
+[12.201s]       |              [01;35m[K^[m[K
+[12.208s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar.h:40[m[K,
+[12.210s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/src/sdkcommon.h:48[m[K,
+[12.211s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/hal/thread.cpp:35[m[K:
+[12.212s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar_cmd.h:260:18:[m[K [01;35m[Kwarning: [m[KISO C++ forbids zero-size array ‘[01m[Kpayload[m[K’ [[01;35m[K-Wpedantic[m[K]
+[12.213s]   260 |     _u8  payload[[01;35m[K0[m[K];
+[12.214s]       |                  [01;35m[K^[m[K
+[12.215s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/hal/thread.cpp:43[m[K:
+[12.216s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/src/arch/linux/thread.hpp:[m[K In static member function ‘[01m[Kstatic rp::hal::Thread rp::hal::Thread::create(thread_proc_t, void*)[m[K’:
+[12.217s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/src/arch/linux/thread.hpp:48:77:[m[K [01;35m[Kwarning: [m[Kcast between incompatible function types from ‘[01m[Kthread_proc_t[m[K’ {aka ‘[01m[Klong unsigned int (*)(void*)[m[K’} to ‘[01m[Kvoid* (*)(void*)[m[K’ [[01;35m[K-Wcast-function-type[m[K]
+[12.218s]    48 |     pthread_create((pthread_t *)&newborn._handle, NULL, (void * (*)(void *))[01;35m[Kproc[m[K, data);
+[12.218s]       |                                                                             [01;35m[K^~~~[m[K
+[12.219s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/src/arch/linux/thread.hpp:[m[K In member function ‘[01m[Ku_result rp::hal::Thread::join(long unsigned int)[m[K’:
+[12.220s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/src/arch/linux/thread.hpp:129:37:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktimeout[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[12.221s]   129 | u_result Thread::join([01;35m[Kunsigned long timeout[m[K)
+[12.222s]       |                       [01;35m[K~~~~~~~~~~~~~~^~~~~~~[m[K
+[12.805s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar.h:39[m[K,
+[12.806s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/sdkcommon.h:48[m[K,
+[12.806s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:35[m[K:
+[12.808s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar_protocol.h:59:14:[m[K [01;35m[Kwarning: [m[KISO C++ forbids zero-size array ‘[01m[Kdata[m[K’ [[01;35m[K-Wpedantic[m[K]
+[12.808s]    59 |     _u8 data[[01;35m[K0[m[K];
+[12.809s]       |              [01;35m[K^[m[K
+[12.809s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar.h:40[m[K,
+[12.810s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/sdkcommon.h:48[m[K,
+[12.810s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:35[m[K:
+[12.811s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar_cmd.h:260:18:[m[K [01;35m[Kwarning: [m[KISO C++ forbids zero-size array ‘[01m[Kpayload[m[K’ [[01;35m[K-Wpedantic[m[K]
+[12.811s]   260 |     _u8  payload[[01;35m[K0[m[K];
+[12.812s]       |                  [01;35m[K^[m[K
+[13.442s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::standalone::rplidar::RPlidarDriverImplCommon::reset(_u32)[m[K’:
+[13.444s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:121:46:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktimeout[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[13.445s]   121 | u_result RPlidarDriverImplCommon::reset([01;35m[K_u32 timeout[m[K)
+[13.445s]       |                                         [01;35m[K~~~~~^~~~~~~[m[K
+[13.446s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::standalone::rplidar::RPlidarDriverImplCommon::checkIfTofLidar(bool&, _u32)[m[K’:
+[13.447s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:275:75:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktimeout[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[13.449s]   275 | u_result RPlidarDriverImplCommon::checkIfTofLidar(bool & isTofLidar, [01;35m[K_u32 timeout[m[K)
+[13.451s]       |                                                                      [01;35m[K~~~~~^~~~~~~[m[K
+[13.461s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual int rp::standalone::rplidar::RPlidarDriverImplCommon::_getSyncBitByAngle(int, int)[m[K’:
+[13.462s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:671:16:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Klast_angleInc_q16[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[13.462s]   671 |     static int [01;35m[Klast_angleInc_q16[m[K = 0;
+[13.463s]       |                [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[13.463s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:673:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KsyncBit_check_threshold[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[13.464s]   673 |     int [01;35m[KsyncBit_check_threshold[m[K = (int)((5 << 16) / angleInc_q16) + 1;//find syncBit in 0~3 degree
+[13.465s]       |         [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[13.468s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::standalone::rplidar::RPlidarDriverImplCommon::_cacheUltraCapsuledScanData()[m[K’:
+[13.468s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:771:46:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Klast_scan_count[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[13.469s]   771 |     size_t                                   [01;35m[Klast_scan_count[m[K = 0;
+[13.470s]       |                                              [01;35m[K^~~~~~~~~~~~~~~[m[K
+[13.472s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual void rp::standalone::rplidar::RPlidarDriverImplCommon::_capsuleToNormal(const rplidar_response_capsule_measurement_nodes_t&, rplidar_response_measurement_node_hq_t*, size_t&)[m[K’:
+[13.473s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:850:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KsyncBit_check_threshold[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[13.473s]   850 |             int [01;35m[KsyncBit_check_threshold[m[K = (int)((2 << 16) / angleInc_q16) + 1;//find syncBit in 0~1 degree
+[13.474s]       |                 [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[13.475s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual void rp::standalone::rplidar::RPlidarDriverImplCommon::_dense_capsuleToNormal(const rplidar_response_capsule_measurement_nodes_t&, rplidar_response_measurement_node_hq_t*, size_t&)[m[K’:
+[13.476s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:903:108:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on cast result type [[01;35m[K-Wignored-qualifiers[m[K]
+[13.476s]   903 |             const int dist = static_cast<const int>(_cached_previous_dense_capsuledata.cabins[pos].distance[01;35m[K)[m[K;
+[13.477s]       |                                                                                                            [01;35m[K^[m[K
+[13.481s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In function ‘[01m[K_u32 rp::standalone::rplidar::_crc32cal(_u32, void*, _u16)[m[K’:
+[13.481s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:1027:23:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around ‘[01m[K-[m[K’ in operand of ‘[01m[K&[m[K’ [[01;35m[K-Wparentheses[m[K]
+[13.482s]  1027 |     _u8 leftBytes = [01;35m[K4 - len[m[K & 0x3;
+[13.482s]       |                     [01;35m[K~~^~~~~[m[K
+[13.489s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual void rp::standalone::rplidar::RPlidarDriverImplCommon::_ultraCapsuleToNormal(const rplidar_response_ultra_capsule_measurement_nodes_t&, rplidar_response_measurement_node_hq_t*, size_t&)[m[K’:
+[13.490s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:1238:32:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kunsigned int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[13.490s]  1238 |             if (([01;35m[Kdist_predict1 == 0xFFFFFE00[m[K) || (dist_predict1 == 0x1FF)) {
+[13.491s]       |                  [01;35m[K~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[13.492s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:1246:32:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kunsigned int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[13.492s]  1246 |             if (([01;35m[Kdist_predict2 == 0xFFFFFE00[m[K) || (dist_predict2 == 0x1FF)) {
+[13.493s]       |                  [01;35m[K~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[13.493s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:1256:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KsyncBit_check_threshold[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[13.494s]  1256 |                 int [01;35m[KsyncBit_check_threshold[m[K = (int)((3 << 16) / angleInc_q16)+1;//find syncBit in 0~1 degree
+[13.494s]       |                     [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[13.515s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::standalone::rplidar::RPlidarDriverImplCommon::getAllSupportedScanModes(std::vector<rp::standalone::rplidar::RplidarScanMode>&, _u32)[m[K’:
+[13.516s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:1484:105:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KtimeoutInMs[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[13.517s]  1484 | u_result RPlidarDriverImplCommon::getAllSupportedScanModes(std::vector<RplidarScanMode>& outModes, [01;35m[K_u32 timeoutInMs[m[K)
+[13.517s]       |                                                                                                    [01;35m[K~~~~~^~~~~~~~~~~[m[K
+[13.520s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::standalone::rplidar::RPlidarDriverImplCommon::startScan(bool, bool, _u32, rp::standalone::rplidar::RplidarScanMode*)[m[K’:
+[13.521s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:1581:83:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Koptions[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[13.521s]  1581 | u_result RPlidarDriverImplCommon::startScan(bool force, bool useTypicalScan, [01;35m[K_u32 options[m[K, RplidarScanMode* outUsedScanMode)
+[13.522s]       |                                                                              [01;35m[K~~~~~^~~~~~~[m[K
+[13.527s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::standalone::rplidar::RPlidarDriverImplCommon::stop(_u32)[m[K’:
+[13.528s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:1805:45:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktimeout[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[13.528s]  1805 | u_result RPlidarDriverImplCommon::stop([01;35m[K_u32 timeout[m[K)
+[13.529s]       |                                        [01;35m[K~~~~~^~~~~~~[m[K
+[13.543s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::standalone::rplidar::RPlidarDriverImplCommon::setLidarSpinSpeed(_u16, _u32)[m[K’:
+[13.545s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:2193:68:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktimeout[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[13.547s]  2193 | u_result RPlidarDriverImplCommon::setLidarSpinSpeed(_u16 rpm, [01;35m[K_u32 timeout[m[K)
+[13.548s]       |                                                               [01;35m[K~~~~~^~~~~~~[m[K
+[13.549s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::standalone::rplidar::RPlidarDriverSerial::connect(const char*, _u32, _u32)[m[K’:
+[13.550s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:2270:83:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kflag[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[13.550s]  2270 | u_result RPlidarDriverSerial::connect(const char * port_path, _u32 baudrate, [01;35m[K_u32 flag[m[K)
+[13.551s]       |                                                                              [01;35m[K~~~~~^~~~[m[K
+[13.552s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::standalone::rplidar::RPlidarDriverTCP::connect(const char*, _u32, _u32)[m[K’:
+[13.553s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:2312:72:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kflag[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[13.554s]  2312 | u_result RPlidarDriverTCP::connect(const char * ipStr, _u32 port, [01;35m[K_u32 flag[m[K)
+[13.554s]       |                                                                   [01;35m[K~~~~~^~~~[m[K
+[13.975s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:[m[K In member function ‘[01m[Kvirtual u_result rp::standalone::rplidar::RPlidarDriverImplCommon::startMotor()[m[K’:
+[13.976s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/sdk/src/rplidar_driver.cpp:2225:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+[13.976s]  2225 | [01;35m[K}[m[K
+[13.977s]       | [01;35m[K^[m[K
+[15.337s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar.h:39[m[K,
+[15.337s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/include/rplidar_node.hpp:41[m[K,
+[15.337s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:36[m[K:
+[15.338s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar_protocol.h:59:14:[m[K [01;35m[Kwarning: [m[KISO C++ forbids zero-size array ‘[01m[Kdata[m[K’ [[01;35m[K-Wpedantic[m[K]
+[15.338s]    59 |     _u8 data[[01;35m[K0[m[K];
+[15.339s]       |              [01;35m[K^[m[K
+[15.339s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar.h:40[m[K,
+[15.340s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/include/rplidar_node.hpp:41[m[K,
+[15.340s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:36[m[K:
+[15.340s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar_cmd.h:260:18:[m[K [01;35m[Kwarning: [m[KISO C++ forbids zero-size array ‘[01m[Kpayload[m[K’ [[01;35m[K-Wpedantic[m[K]
+[15.341s]   260 |     _u8  payload[[01;35m[K0[m[K];
+[15.341s]       |                  [01;35m[K^[m[K
+[15.612s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:[m[K In member function ‘[01m[Kvoid rplidar_ros::rplidar_node::stop_motor({anonymous}::EmptyRequest, {anonymous}::EmptyResponse)[m[K’:
+[15.612s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:248:50:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kreq[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[15.613s]   248 | void rplidar_node::stop_motor([01;35m[Kconst EmptyRequest req[m[K, EmptyResponse res)
+[15.613s]       |                               [01;35m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[15.613s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:248:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kres[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[15.614s]   248 | void rplidar_node::stop_motor(const EmptyRequest req, [01;35m[KEmptyResponse res[m[K)
+[15.614s]       |                                                       [01;35m[K~~~~~~~~~~~~~~^~~[m[K
+[15.615s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:[m[K In member function ‘[01m[Kvoid rplidar_ros::rplidar_node::start_motor({anonymous}::EmptyRequest, {anonymous}::EmptyResponse)[m[K’:
+[15.615s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:259:51:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kreq[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[15.616s]   259 | void rplidar_node::start_motor([01;35m[Kconst EmptyRequest req[m[K, EmptyResponse res)
+[15.616s]       |                                [01;35m[K~~~~~~~~~~~~~~~~~~~^~~[m[K
+[15.616s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:259:70:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kres[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[15.617s]   259 | ode::start_motor(const EmptyRequest req, [01;35m[KEmptyResponse res[m[K)
+[15.617s]       |                                          [01;35m[K~~~~~~~~~~~~~~^~~[m[K
+[15.617s] 
+[15.639s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:[m[K In member function ‘[01m[Kvoid rplidar_ros::rplidar_node::publish_loop()[m[K’:
+[15.640s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:362:25:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[15.640s]   362 |           for (j = 0; [01;35m[Kj < m_angle_compensate_multiple[m[K; j++) {
+[15.641s]       |                       [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[15.643s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:383:44:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[15.644s]   383 |       for (size_t x = start_node, y = 0; [01;35m[Kx < end_node[m[K; ++x, ++y) {
+[15.644s]       |                                          [01;35m[K~~^~~~~~~~~~[m[K
+[15.645s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:390:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kangle_min[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[15.645s]   390 |     float [01;35m[Kangle_min[m[K = deg_2_rad(0.0f);
+[15.646s]       |           [01;35m[K^~~~~~~~~[m[K
+[15.646s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/rplidar_node.cpp:391:11:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kangle_max[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[15.646s]   391 |     float [01;35m[Kangle_max[m[K = deg_2_rad(359.0f);
+[15.647s]       |           [01;35m[K^~~~~~~~~[m[K
+[23.832s] [ 77%] [32m[1mLinking CXX shared library librplidar_composition_node.so[0m
+[24.787s] [ 77%] Built target rplidar_composition_node
+[24.829s] [35m[1mScanning dependencies of target rplidar_composition[0m
+[25.010s] [ 88%] [32mBuilding CXX object CMakeFiles/rplidar_composition.dir/src/standalone_rplidar.cpp.o[0m
+[25.474s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/standalone_rplidar.cpp:16[m[K:
+[25.475s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/include/rplidar_node.hpp:50:[m[K [01;35m[Kwarning: [m[K"M_PI" redefined
+[25.475s]    50 | #define M_PI 3.1415926535897932384626433832795
+[25.475s]       | 
+[25.476s] In file included from [01m[K/usr/include/c++/9/cmath:45[m[K,
+[25.476s]                  from [01m[K/opt/ros/foxy/include/libstatistics_collector/moving_average_statistics/types.hpp:18[m[K,
+[25.476s]                  from [01m[K/opt/ros/foxy/include/libstatistics_collector/collector/generate_statistics_message.hpp:24[m[K,
+[25.477s]                  from [01m[K/opt/ros/foxy/include/rclcpp/topic_statistics/subscription_topic_statistics.hpp:23[m[K,
+[25.477s]                  from [01m[K/opt/ros/foxy/include/rclcpp/subscription.hpp:50[m[K,
+[25.477s]                  from [01m[K/opt/ros/foxy/include/rclcpp/any_executable.hpp:25[m[K,
+[25.478s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategy.hpp:24[m[K,
+[25.478s]                  from [01m[K/opt/ros/foxy/include/rclcpp/memory_strategies.hpp:18[m[K,
+[25.478s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor_options.hpp:20[m[K,
+[25.479s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executor.hpp:33[m[K,
+[25.479s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors/multi_threaded_executor.hpp:26[m[K,
+[25.480s]                  from [01m[K/opt/ros/foxy/include/rclcpp/executors.hpp:21[m[K,
+[25.480s]                  from [01m[K/opt/ros/foxy/include/rclcpp/rclcpp.hpp:146[m[K,
+[25.480s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/include/rplidar_node.hpp:34[m[K,
+[25.481s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/standalone_rplidar.cpp:16[m[K:
+[25.481s] [01m[K/usr/include/math.h:1070:[m[K [01;36m[Knote: [m[Kthis is the location of the previous definition
+[25.481s]  1070 | # define M_PI  3.14159265358979323846 /* pi */
+[25.482s]       | 
+[30.447s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar.h:39[m[K,
+[30.448s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/include/rplidar_node.hpp:41[m[K,
+[30.448s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/standalone_rplidar.cpp:16[m[K:
+[30.448s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar_protocol.h:59:14:[m[K [01;35m[Kwarning: [m[KISO C++ forbids zero-size array ‘[01m[Kdata[m[K’ [[01;35m[K-Wpedantic[m[K]
+[30.449s]    59 |     _u8 data[[01;35m[K0[m[K];
+[30.449s]       |              [01;35m[K^[m[K
+[30.450s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar.h:40[m[K,
+[30.450s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/include/rplidar_node.hpp:41[m[K,
+[30.450s]                  from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/standalone_rplidar.cpp:16[m[K:
+[30.451s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/./sdk/include/rplidar_cmd.h:260:18:[m[K [01;35m[Kwarning: [m[KISO C++ forbids zero-size array ‘[01m[Kpayload[m[K’ [[01;35m[K-Wpedantic[m[K]
+[30.451s]   260 |     _u8  payload[[01;35m[K0[m[K];
+[30.451s]       |                  [01;35m[K^[m[K
+[32.319s] In file included from [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/src/standalone_rplidar.cpp:16[m[K:
+[32.319s] [01m[K/home/pi/robot_workspace/packages/src/rplidar_ros2/include/rplidar_node.hpp:76:14:[m[K [01;35m[Kwarning: [m[K‘[01m[Kfloat rplidar_ros::getAngle(const rplidar_response_measurement_node_hq_t&)[m[K’ defined but not used [[01;35m[K-Wunused-function[m[K]
+[32.320s]    76 | static float [01;35m[KgetAngle[m[K(const rplidar_response_measurement_node_hq_t & node)
+[32.321s]       |              [01;35m[K^~~~~~~~[m[K
+[32.721s] [100%] [32m[1mLinking CXX executable rplidar_composition[0m
+[33.429s] [100%] Built target rplidar_composition
+[33.468s] Invoked command in '/home/pi/robot_workspace/packages/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --build /home/pi/robot_workspace/packages/build/rplidar_ros -- -j4 -l4
+[33.696s] Invoking command in '/home/pi/robot_workspace/packages/build/rplidar_ros': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/pi/robot_workspace/packages/build/rplidar_ros
+[33.730s] -- Install configuration: ""
+[33.731s] -- Execute custom install script
+[33.733s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/lib/rplidar_ros/rplidar_composition
+[33.768s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/launch/rplidar.launch.py
+[33.801s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/launch/rplidar_a3.launch.py
+[33.833s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/launch/rplidar_s1.launch.py
+[34.038s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/launch/rplidar_s1_tcp.launch.py
+[34.045s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/launch/test_rplidar_a3.launch.py
+[34.078s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar.launch.py
+[34.109s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_a3.launch.py
+[34.140s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_s1.launch.py
+[34.172s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/launch/view_rplidar_s1_tcp.launch.py
+[34.204s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/rviz/rplidar.rviz
+[34.237s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/lib/librplidar_composition_node.so
+[34.270s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/include/rplidar_node.hpp
+[34.302s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/include/visibility.h
+[34.335s] -- Up-to-date symlink: /home/pi/robot_workspace/packages/install/rplidar_ros/lib/rplidar_ros/rplidar_composition
+[34.337s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/ament_index/resource_index/package_run_dependencies/rplidar_ros
+[34.372s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/ament_index/resource_index/parent_prefix_path/rplidar_ros
+[34.405s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/environment/ament_prefix_path.sh
+[34.437s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/environment/ament_prefix_path.dsv
+[34.470s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/environment/path.sh
+[34.501s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/environment/path.dsv
+[34.533s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/local_setup.bash
+[34.565s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/local_setup.sh
+[34.597s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/local_setup.zsh
+[34.629s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/local_setup.dsv
+[34.663s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/package.dsv
+[34.695s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/ament_index/resource_index/packages/rplidar_ros
+[34.728s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/ament_index/resource_index/rclcpp_components/rplidar_ros
+[34.761s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/cmake/ament_cmake_export_dependencies-extras.cmake
+[34.793s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/cmake/ament_cmake_export_include_directories-extras.cmake
+[34.825s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/cmake/rplidar_rosConfig.cmake
+[34.856s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/cmake/rplidar_rosConfig-version.cmake
+[34.889s] -- Symlinking: /home/pi/robot_workspace/packages/install/rplidar_ros/share/rplidar_ros/package.xml
+[34.928s] Invoked command in '/home/pi/robot_workspace/packages/build/rplidar_ros' returned '0': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake --install /home/pi/robot_workspace/packages/build/rplidar_ros
