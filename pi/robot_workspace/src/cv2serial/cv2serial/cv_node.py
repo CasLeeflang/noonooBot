@@ -4,19 +4,17 @@ from geometry_msgs.msg import Twist
 import serial
 import struct
 
-class cvNode(Node):
 
+class cvNode(Node):
 
     def __init__(self):
         super().__init__('cv_node')
-        self.subscription = self.create_subscription(
-            Twist,
-            'cmd_vel',
-            self.listener_callback,
-            10)
-        
+        self.subscription = self.create_subscription(Twist, 'cmd_vel',
+                                                     self.listener_callback,
+                                                     10)
+
         self.get_logger().info('Starting cv2serial node')
-        self.subscription  
+        self.subscription
         self.ser = serial.Serial('/dev/ttyACM0')
         self.ser.baudrate = 115200
 
@@ -31,9 +29,8 @@ class cvNode(Node):
 
         self.ser.write(sending)
 
-        self.get_logger().info('Linear: "%s"' %msg.linear.x)
-        self.get_logger().info('Angular: "%s"' %msg.angular.z)
-
+        self.get_logger().info('Linear: "%s"' % msg.linear.x)
+        self.get_logger().info('Angular: "%s"' % msg.angular.z)
 
 
 def main(args=None):
@@ -42,9 +39,6 @@ def main(args=None):
     rclpy.spin(cv_node)
     cvNode.destroy_node()
     rclpy.shutdown()
-
-
-
 
 if __name__ == "__main__":
     main()
