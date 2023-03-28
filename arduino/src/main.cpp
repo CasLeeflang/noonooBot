@@ -3,6 +3,7 @@
 #include "PID.h"
 #include "Motor.h"
 #include "Odometry.h"
+#include "SerialCommunication.h"
 
 #define encA_pin 2
 #define encB_pin 3
@@ -25,14 +26,23 @@
 void encoder1Interrupt();
 void encoder2Interrupt();
 
+SerialCommunication comm;
 Motor mot1;
 Encoder enc1;
 Motor mot2;
 Encoder enc2;
 PID pid;
 PID pid2;
-float setpointLeft; // = 2*PI;  // [rad/s]
-float setpointRight; // = 2*PI; // [rad/s]
+
+
+float dummyval = -10.0;
+float dummyvalrx1;
+float dummyvalrx2;
+
+float linearVel = 0.0;
+float rotationVel = 0.0;
+float setpointLeft = 0.0; // = 2*PI;  // [rad/s]
+float setpointRight = 0.0; // = 2*PI; // [rad/s]
 
 float actualRPM;
 float filteredRPM;
@@ -58,7 +68,9 @@ void setup() {
   previousTime = millis();
   previousTimeOdometry = millis();
   // = millis();
-  Serial.begin(9600);
+  Serial.begin(115200);
+  comm.SetCommunicationVars(&X_pos, &Y_pos, &theta, &linearVel, &rotationVel);
+  //comm.SetCommunicationVars(&dummyvalrx1, &dummyvalrx2, &dummyval, &dummyvalrx1, &dummyvalrx2);
 
   
 
@@ -78,13 +90,19 @@ void setup() {
   //tone(40, 320);
   // put your setup code here, to run once:
   //setMotorPWM(-32);
-  CommandVelocity(1.0, 0.0, setpointLeft, setpointRight);
+  //CommandVelocity(1.0, 0.0, setpointLeft, setpointRight);
 }
 
 
 
 void loop() {
 
+  // get the current serial commanding velocity's and convert them to setpoints for the left/right motor
+  CommandVelocity(linearVel, rotationVel, setpointLeft, setpointRight);
+
+
+
+  // PID CONTROL var passing
   float errorLeft = setpointLeft - enc1.GetAngularVelocity();
   pid.SetInput(errorLeft);
   mot1.SetValue(pid.GetOutput());
@@ -93,9 +111,16 @@ void loop() {
   pid2.SetInput(errorRight);
   mot2.SetValue(pid2.GetOutput());
 
+  // 50 ms interval odometry pose update
+  if((millis() - previousTimeOdometry) >= 50)
+  {
+    EstimatePose(enc1.GetAngularVelocity(), enc2.GetAngularVelocity());
+    previousTimeOdometry = millis();
+  }
 
 
 
+  /*
   // print angular velocity every 100 ms to the serial connection
   if((millis() - previousTime) > 100)
   {
@@ -104,15 +129,10 @@ void loop() {
     Serial.println(enc2.GetAngularVelocity());
     previousTime = millis();
 
-  }
+  } */
 
 
-  // 50 ms interval odometry pose update
-  if((millis() - previousTimeOdometry) >= 50)
-  {
-    EstimatePose(enc1.GetAngularVelocity(), enc2.GetAngularVelocity());
-    previousTimeOdometry = millis();
-  }
+
 
   /*
 
@@ -155,6 +175,7 @@ void loop() {
   enc2.Update();
   pid.Update();
   pid2.Update();
+  comm.Update();
 }
 
 
