@@ -17,11 +17,10 @@ void SerialCommunication::SetCommunicationVars(float *tx_posx, float *tx_posy, f
   m_receivedFrameLength = 0;
 
   m_previoustxTime = millis();
-  /*
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, HIGH);
-        delay(2000);
-        digitalWrite(LED_BUILTIN, LOW); */
+  
+  //pinMode(LED_BUILTIN, OUTPUT);
+  //digitalWrite(LED_BUILTIN, LOW);
+
 }
 
 void SerialCommunication::Update(void)
@@ -65,11 +64,29 @@ void SerialCommunication::Update(void)
   // rx of the data
   if (Serial.available())
   {
-    m_incomingDataBuff[m_receivedFrameLength] = Serial.read(); 
-    m_receivedFrameLength++;
+    //m_incomingDataBuff[m_receivedFrameLength] = Serial.read(); 
 
+    // read all new incoming bytes
+    int incomingByte = Serial.read();
+    while (incomingByte != -1)
+    {
+      // overflow of buffer
+      if(m_receivedFrameLength >= 30)
+      {
+        m_receivedFrameLength = 0;
+      }
+      // no buffer overflow
+      else
+      {
+        m_incomingDataBuff[m_receivedFrameLength] = incomingByte;
+        m_receivedFrameLength++;
+      }
+      
+      incomingByte = Serial.read();
+    }
    
 
+    // check if the end char \n is received
     if (m_incomingDataBuff[m_receivedFrameLength-1] == '\n')
     {
       
@@ -77,9 +94,10 @@ void SerialCommunication::Update(void)
       if(m_receivedFrameLength == 10)
       {
         /*
-          digitalWrite(LED_BUILTIN, HIGH);
-        delay(2000);
-        digitalWrite(LED_BUILTIN, LOW);*/
+        digitalWrite(LED_BUILTIN, HIGH);
+        delay(500);
+        digitalWrite(LED_BUILTIN, LOW);
+        delay(500); */
         floatUnion_t receiveLinVel;
         floatUnion_t receiveAngVel;
 
@@ -100,7 +118,7 @@ void SerialCommunication::Update(void)
 
         
       }
-      // set buffer length to 0
+      // reset buffer length to 0
       m_receivedFrameLength = 0;
     }
     

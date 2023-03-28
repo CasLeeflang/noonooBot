@@ -35,9 +35,8 @@ PID pid;
 PID pid2;
 
 
-float dummyval = -10.0;
-float dummyvalrx1;
-float dummyvalrx2;
+float dummyvalrx1 = -10.0;
+float dummyvalrx2 = 0.0;
 
 float linearVel = 0.0;
 float rotationVel = 0.0;
@@ -53,6 +52,7 @@ unsigned long previousTime;
 unsigned long previousTime2;
 
 unsigned long previousTimeOdometry;
+unsigned long timeSerialTest;
 
 
 
@@ -70,7 +70,7 @@ void setup() {
   // = millis();
   Serial.begin(115200);
   comm.SetCommunicationVars(&X_pos, &Y_pos, &theta, &linearVel, &rotationVel);
-  //comm.SetCommunicationVars(&dummyvalrx1, &dummyvalrx2, &dummyval, &dummyvalrx1, &dummyvalrx2);
+  //comm.SetCommunicationVars(&dummyvalrx1, &dummyvalrx1, &dummyvalrx2, &dummyvalrx1, &dummyvalrx2);
 
   
 
@@ -91,6 +91,8 @@ void setup() {
   // put your setup code here, to run once:
   //setMotorPWM(-32);
   //CommandVelocity(1.0, 0.0, setpointLeft, setpointRight);
+  timeSerialTest = millis();
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 
@@ -116,6 +118,14 @@ void loop() {
   {
     EstimatePose(enc1.GetAngularVelocity(), enc2.GetAngularVelocity());
     previousTimeOdometry = millis();
+  }
+
+  if((millis() - timeSerialTest) >= 1000)
+  {
+    static bool led = false;
+    led = !led;
+    digitalWrite(LED_BUILTIN, led);
+    timeSerialTest = millis();
   }
 
 
