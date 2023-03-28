@@ -69,7 +69,7 @@ void setup() {
   previousTimeOdometry = millis();
   // = millis();
   Serial.begin(115200);
-  comm.SetCommunicationVars(&X_pos, &Y_pos, &theta, &linearVel, &rotationVel);
+  //comm.SetCommunicationVars(&X_pos, &Y_pos, &theta, &linearVel, &rotationVel);
   //comm.SetCommunicationVars(&dummyvalrx1, &dummyvalrx2, &dummyval, &dummyvalrx1, &dummyvalrx2);
 
   
@@ -98,7 +98,9 @@ void setup() {
 void loop() {
 
   // get the current serial commanding velocity's and convert them to setpoints for the left/right motor
-  CommandVelocity(linearVel, rotationVel, setpointLeft, setpointRight);
+  //CommandVelocity(linearVel, rotationVel, setpointLeft, setpointRight);
+CommandVelocity(linearVel, rotationVel, setpointLeft, setpointRight);
+
 
 
 
@@ -175,7 +177,7 @@ void loop() {
   enc2.Update();
   pid.Update();
   pid2.Update();
-  comm.Update();
+  //comm.Update();
 }
 
 
