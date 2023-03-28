@@ -29,6 +29,11 @@ class cvNode(Node):
 
         self.ser.write(sending)
 
+        # received_message = self.ser.read_until(b'\r\n')
+        # self.get_logger().info('Received: "%s"' % received_message)
+
+        self.ser.reset_input_buffer()
+
         self.get_logger().info('Linear: "%s"' % msg.linear.x)
         self.get_logger().info('Angular: "%s"' % msg.angular.z)
 
@@ -39,6 +44,7 @@ def main(args=None):
     rclpy.spin(cv_node)
     cvNode.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == "__main__":
     main()
