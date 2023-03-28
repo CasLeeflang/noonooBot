@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'cv2serial'
+package_name = 'serial_bridge'
 
 setup(
     name=package_name,
@@ -13,12 +13,13 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='cas',
-    maintainer_email='cas@todo.todo',
+    maintainer='Max',
+    maintainer_email='hello@mpfglaser.nl',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': ['node = cv2serial.cv_node:main'],
+        'console_scripts':
+        ['serial_bridge = serial_bridge.serial_bridge_node:main'],
     },
 )
