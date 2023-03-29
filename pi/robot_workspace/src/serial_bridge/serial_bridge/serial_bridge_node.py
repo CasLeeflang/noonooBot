@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
-from std_msgs.msg import ByteMultiArray, Byte
+from nav_msgs.msg import Odometry
 import serial
 import struct
 
@@ -16,7 +16,7 @@ class serialBridgeNode(Node):
                                                      self.write_serial, 10)
 
         # Serial device --[data]--> ROS topic
-        self.publisher = self.create_publisher(Byte, 'serial_read', 10)
+        self.publisher = self.create_publisher(Odometry, 'odom', 10)
 
         timer_period = 0.05  # seconds
         self.timer = self.create_timer(timer_period, self.read_serial)
@@ -49,8 +49,18 @@ class serialBridgeNode(Node):
     def read_serial(self):
         while (self.ser.in_waiting >= 14):
             received_message = self.ser.read_until(b'\r\n')
-            self.publisher.publish(received_message)
-            self.get_logger().info('Received: "%s"' % received_message)
+
+            odometry_msg = Odometry()
+
+            odometry_msg.pose.pose.position.x = struct.unpack(
+                '<f', received_message[0:4])
+            odometry_msg.pose.pose.position.y = struct.unpack(
+                '<f', received_message[4:8])
+            odometry_msg.pose.pose.orientation.z = struct.unpack(
+                '<f', received_message[8:12])
+
+            self.publisher.publish(odometry_msg)
+            self.get_logger().info(f'Received: {odometry_msg}')
             return
 
 

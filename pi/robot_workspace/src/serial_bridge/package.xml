@@ -13,7 +13,10 @@
   <test_depend>python3-pytest</test_depend>
 
   <depend>rclpy</depend>
+  <depend>geometry_msgs.msg</depend>
+  <depend>nav_msgs.msg</depend>
   <depend>serial</depend>
+  <depend>struct</depend>
 
   <export>
     <build_type>ament_python</build_type>
