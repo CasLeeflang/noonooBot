@@ -53,14 +53,17 @@ class serialBridgeNode(Node):
             odometry_msg = Odometry()
 
             odometry_msg.pose.pose.position.x = struct.unpack(
-                '<f', received_message[0:4])
+                '<f', received_message[0:4])[0]
             odometry_msg.pose.pose.position.y = struct.unpack(
-                '<f', received_message[4:8])
+                '<f', received_message[4:8])[0]
             odometry_msg.pose.pose.orientation.z = struct.unpack(
-                '<f', received_message[8:12])
+                '<f', received_message[8:12])[0]
 
             self.publisher.publish(odometry_msg)
             self.get_logger().info(f'Received: {odometry_msg}')
+
+            # test = struct.unpack('<f', received_message[0:4])[0]
+            # self.get_logger().info(f'received x pos: {test}')
             return
 
 
