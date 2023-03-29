@@ -10,7 +10,7 @@ class Encoder
 {
   public:
     Encoder(void);
-    void Init(int pinEncA, int pinEncB, float pulsesPerRotation);
+    void Init(int pinEncA, int pinEncB, float pulsesPerRotation, bool inverse);
     float GetRPM(void);
     float GetAngularVelocity(void);
 
@@ -27,6 +27,7 @@ class Encoder
 
     int m_encAPin;
     int m_encBPin;
+    bool m_inverse;
     //float m_pulsesRatio;
     //float m_gearRatio;
     //float m_velocity;

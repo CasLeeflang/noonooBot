@@ -12,11 +12,12 @@ Encoder::Encoder(void)
   m_lastRotationDir = 0; */
 }
 
-void Encoder::Init(int pinEncA, int pinEncB, float pulsesPerRotation)
+void Encoder::Init(int pinEncA, int pinEncB, float pulsesPerRotation, bool inverse)
 {
   m_encAPin = pinEncA;
   m_encBPin = pinEncB;
   m_pulsesPerRation = pulsesPerRotation;
+  m_inverse = inverse;
 
   // set pin direction 
   pinMode(m_encAPin, INPUT_PULLUP);
@@ -51,6 +52,11 @@ void Encoder::Update(void)
 // [      rad/s     ]     [                  pulses/s                ]    [pulses/rotation]                
     m_angularVelocity = ((pulses * ((float)1000000/(float)UPDATE_TIME)) / m_pulsesPerRation) * 2 * PI;
 
+    if (m_inverse)
+    {
+      m_angularVelocity = -m_angularVelocity;
+    }
+    
     // store the old interval time
     m_previousTime = currentTime;
   }

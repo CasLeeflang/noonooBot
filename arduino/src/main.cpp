@@ -76,8 +76,8 @@ void setup() {
 
   //pinMode(encA_pin, INPUT_PULLUP);
  // attachInterrupt(digitalPinToInterrupt(encA_pin), encoderInterruptA, RISING);
-  enc1.Init(encA_pin, encB_pin, 320); //16
-  enc2.Init(encA2_pin, encB2_pin, 320);
+  enc1.Init(encA_pin, encB_pin, 320, false); //16
+  enc2.Init(encA2_pin, encB2_pin, 320, false);
   attachInterrupt(digitalPinToInterrupt(encA_pin), encoder1Interrupt, RISING);
   attachInterrupt(digitalPinToInterrupt(encA2_pin), encoder2Interrupt, RISING);
   
