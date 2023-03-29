@@ -18,7 +18,7 @@ class serialBridgeNode(Node):
         # Serial device --[data]--> ROS topic
         self.publisher = self.create_publisher(Byte, 'serial_read', 10)
 
-        timer_period = 0.1  # seconds
+        timer_period = 0.05  # seconds
         self.timer = self.create_timer(timer_period, self.read_serial)
 
         self.get_logger().info('Starting serial bridge node')
@@ -47,7 +47,7 @@ class serialBridgeNode(Node):
         # self.read_serial()
 
     def read_serial(self):
-        if (self.ser.in_waiting >= 14):
+        while (self.ser.in_waiting >= 14):
             received_message = self.ser.read_until(b'\r\n')
             self.publisher.publish(received_message)
             self.get_logger().info('Received: "%s"' % received_message)
