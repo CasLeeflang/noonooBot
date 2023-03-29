@@ -60,10 +60,10 @@ class serialBridgeNode(Node):
                 '<f', received_message[8:12])[0]
 
             self.publisher.publish(odometry_msg)
-            self.get_logger().info(f'Received: {odometry_msg}')
+            self.get_logger().info(
+                f'Current position: \n X: {str(odometry_msg.pose.pose.position.x)[:3]} Y: {str(odometry_msg.pose.pose.position.y)[:3]} Z-orientation: {str(odometry_msg.pose.pose.orientation.z)[:3]}'
+            )
 
-            # test = struct.unpack('<f', received_message[0:4])[0]
-            # self.get_logger().info(f'received x pos: {test}')
             return
 
 
