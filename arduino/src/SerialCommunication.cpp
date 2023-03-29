@@ -17,9 +17,9 @@ void SerialCommunication::SetCommunicationVars(float *tx_posx, float *tx_posy, f
   m_receivedFrameLength = 0;
 
   m_previoustxTime = millis();
-  
-  //pinMode(LED_BUILTIN, OUTPUT);
-  //digitalWrite(LED_BUILTIN, LOW);
+
+  // initialize the Serial Communication with baudrate of 115200
+  Serial.begin(115200);
 
 }
 

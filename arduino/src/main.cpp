@@ -68,7 +68,7 @@ void setup() {
   previousTime = millis();
   previousTimeOdometry = millis();
   // = millis();
-  Serial.begin(115200);
+  
   comm.SetCommunicationVars(&X_pos, &Y_pos, &theta, &linearVel, &rotationVel);
   //comm.SetCommunicationVars(&dummyvalrx1, &dummyvalrx1, &dummyvalrx2, &dummyvalrx1, &dummyvalrx2);
 
