@@ -8,6 +8,9 @@ import struct
 
 class serialBridgeNode(Node):
 
+    logSerialWrite = False
+    logSerialRead = True
+
     def __init__(self):
         super().__init__('serial_bridge_node')
 
@@ -39,12 +42,9 @@ class serialBridgeNode(Node):
 
         self.ser.write(sending)
 
-        # received_message = self.ser.read_until(b'\r\n')
-        # self.get_logger().info('Received: "%s"' % received_message)
-
-        self.get_logger().info('Linear: "%s"' % msg.linear.x)
-        self.get_logger().info('Angular: "%s"' % msg.angular.z)
-        # self.read_serial()
+        if self.logSerialWrite:
+            self.get_logger().info('Linear: "%s"' % msg.linear.x)
+            self.get_logger().info('Angular: "%s"' % msg.angular.z)
 
     def read_serial(self):
         while (self.ser.in_waiting >= 14):
@@ -60,9 +60,11 @@ class serialBridgeNode(Node):
                 '<f', received_message[8:12])[0]
 
             self.publisher.publish(odometry_msg)
-            self.get_logger().info(
-                f'Current position: \n X: {str(odometry_msg.pose.pose.position.x)[:3]} Y: {str(odometry_msg.pose.pose.position.y)[:3]} Z-orientation: {str(odometry_msg.pose.pose.orientation.z)[:3]}'
-            )
+
+            if self.logSerialRead:
+                self.get_logger().info(
+                    f'Current position: \n X: {str(odometry_msg.pose.pose.position.x)[:3]} Y: {str(odometry_msg.pose.pose.position.y)[:3]} Z-orientation: {str(odometry_msg.pose.pose.orientation.z)[:3]}'
+                )
 
             return
 
