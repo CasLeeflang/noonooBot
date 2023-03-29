@@ -32,8 +32,8 @@ class serialBridgeNode(Node):
 
         sending = bytearray()
 
-        sending += struct.pack('f', (msg.angular.z * 1.5))
-        sending += struct.pack('f', (msg.linear.x * 0.4))
+        sending += struct.pack('<f', msg.linear.x)
+        sending += struct.pack('<f', msg.angular.z)
         sending.append(0x0d)
         sending.append(0x0a)
 
