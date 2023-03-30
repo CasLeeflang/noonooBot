@@ -20,7 +20,7 @@
 
 #### Joystick (xbox) control
 
-~~`ros2 launch teleop_twist_joy teleop-launch.py joy_config:='xbox' scale_angular:='0.1' scale_angular_turbo:='0.1' scale_linear:='4.0' scale_linear_turbo:='8.0'`~~
+~~`ros2 launch teleop_twist_joy teleop-launch.py joy_config:='xbox'`~~
 
 `ros2 launch launch/joy_launch.py`
 
