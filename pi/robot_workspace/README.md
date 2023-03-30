@@ -2,28 +2,32 @@
 
 ## Commands
 
-### Normal operation
+### Launch
+
+`noonoolaunch`
+
+aka
 
 `ros2 launch launch/noonoo_launch.py`
 
-### Testing
-
-#### run only serial node
-
-`ros2 run cv2serial node`
 
 ### Control
 
-#### Keyboard control
+#### **Keyboard control**
+
+`noonookeyboard`
+
+aka
 
 `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
 
-#### Joystick (xbox) control
+#### **Joystick (xbox) control**
 
-~~`ros2 launch teleop_twist_joy teleop-launch.py joy_config:='xbox'`~~
+`noonoojoy`
+
+aka
 
 `ros2 launch launch/joy_launch.py`
-
 
 
 ### Misc.
