@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Wagon_FINAL2.SLDASM">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00071232 -0.011132 0.011557"
+        rpy="0 0 0" />
+      <mass
+        value="1.941" />
+      <inertia
+        ixx="0.0031002"
+        ixy="1.8319E-07"
+        ixz="-1.261E-07"
+        iyy="0.0068642"
+        iyz="-0.00014395"
+        izz="0.0042262" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Wagon_FINAL2.SLDASM/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Wagon_FINAL2.SLDASM/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="LeftWheel">
+    <inertial>
+      <origin
+        xyz="0.0595277257682346 0.0660060262979564 0.0944826896986568"
+        rpy="0 0 0" />
+      <mass
+        value="0.0749982833810974" />
+      <inertia
+        ixx="3.85620601121594E-05"
+        ixy="-3.2351260264921E-09"
+        ixz="8.85449535517429E-12"
+        iyy="7.53748500718055E-05"
+        iyz="3.68149875309628E-09"
+        izz="3.85619298894742E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Wagon_FINAL2.SLDASM/meshes/LeftWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Wagon_FINAL2.SLDASM/meshes/LeftWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LeftWheel"
+    type="continuous">
+    <origin
+      xyz="0.18852 -0.0055491 0.097513"
+      rpy="3.1416 0.51563 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="LeftWheel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="RightWheel">
+    <inertial>
+      <origin
+        xyz="0.0400132489874368 0.0059999998236762 0.0399666041415767"
+        rpy="0 0 0" />
+      <mass
+        value="0.0570828645750587" />
+      <inertia
+        ixx="2.26881111326565E-05"
+        ixy="-3.23512602648937E-09"
+        ixz="8.85449535453901E-12"
+        iyy="4.39441762330487E-05"
+        iyz="3.68149875309472E-09"
+        izz="2.26879809099714E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Wagon_FINAL2.SLDASM/meshes/RightWheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Wagon_FINAL2.SLDASM/meshes/RightWheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RightWheel"
+    type="continuous">
+    <origin
+      xyz="-0.11749 0.03225 0.022683"
+      rpy="3.1416 -0.078139 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="RightWheel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="LiDAR">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Wagon_FINAL2.SLDASM/meshes/LiDAR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Wagon_FINAL2.SLDASM/meshes/LiDAR.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LiDAR"
+    type="fixed">
+    <origin
+      xyz="-0.077875 -0.0032017 0.047319"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="LiDAR" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
