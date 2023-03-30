@@ -18,25 +18,26 @@
 #define mot_in1_2 6
 #define mot_in2_2 7
 
-#define Kp 20
-#define Ki 5.0
-#define Kd 0.1
+#define Kp 20  // 20
+#define Ki 200 // 5
+#define Kd 0.00
 #define Km 0.005
 
 void encoder1Interrupt();
 void encoder2Interrupt();
 
 SerialCommunication comm;
-Motor mot1;
-Encoder enc1;
-Motor mot2;
-Encoder enc2;
-PID pid;
-PID pid2;
+Motor motL;
+Encoder encL;
+Motor motR;
+Encoder encR;
+PID pidL;
+PID pidR;
 
 
-float dummyvalrx1 = -10.0;
-float dummyvalrx2 = 0.0;
+float dummyvaltx1 = 1.0;
+float dummyvaltx2 = 2.0;
+float dummyvaltx3 = 3.0;
 
 float linearVel = 0.0;
 float rotationVel = 0.0;
@@ -69,23 +70,24 @@ void setup() {
   previousTimeOdometry = millis();
   // = millis();
   
+  //Serial.begin(115200);
   comm.SetCommunicationVars(&X_pos, &Y_pos, &theta, &linearVel, &rotationVel);
-  //comm.SetCommunicationVars(&dummyvalrx1, &dummyvalrx1, &dummyvalrx2, &dummyvalrx1, &dummyvalrx2);
+  //comm.SetCommunicationVars(&dummyvaltx1, &dummyvaltx2, &dummyvaltx3, &linearVel, &rotationVel);
 
   
 
   //pinMode(encA_pin, INPUT_PULLUP);
  // attachInterrupt(digitalPinToInterrupt(encA_pin), encoderInterruptA, RISING);
-  enc1.Init(encA_pin, encB_pin, 320, false); //16
-  enc2.Init(encA2_pin, encB2_pin, 320, false);
+  encL.Init(encA_pin, encB_pin, 320, false); //16
+  encR.Init(encA2_pin, encB2_pin, 320, false);
   attachInterrupt(digitalPinToInterrupt(encA_pin), encoder1Interrupt, RISING);
   attachInterrupt(digitalPinToInterrupt(encA2_pin), encoder2Interrupt, RISING);
   
-  pid.SetFactors(Kp, Ki, Kd, Km, 255.0);
-  pid2.SetFactors(Kp, Ki, Kd, Km, 255.0);
-  mot1.Init(pwmM_mot, mot_in1, mot_in2, false);
-  mot2.Init(pwmM_mot2, mot_in1_2, mot_in2_2, true);
-  //mot1.SetValue(35);
+  pidL.SetFactors(Kp, Ki, Kd, Km, 255.0);
+  pidR.SetFactors(Kp, Ki, Kd, Km, 255.0);
+  motL.Init(pwmM_mot, mot_in1, mot_in2, false);
+  motR.Init(pwmM_mot2, mot_in1_2, mot_in2_2, true);
+  //motL.SetValue(35);
   //tone(32, 240);
   //tone(40, 320);
   // put your setup code here, to run once:
@@ -101,23 +103,38 @@ void loop() {
 
   // get the current serial commanding velocity's and convert them to setpoints for the left/right motor
   CommandVelocity(linearVel, rotationVel, setpointLeft, setpointRight);
-
+  //CommandVelocity(4.0, 0.0, setpointLeft, setpointRight);
+  //setpointLeft = 0.0;
+  //setpointRight = 2.0;
 
 
   // PID CONTROL var passing
-  float errorLeft = setpointLeft - enc1.GetAngularVelocity();
-  pid.SetInput(errorLeft);
-  mot1.SetValue(pid.GetOutput());
+  float errorLeft = setpointLeft - encL.GetAngularVelocity();
+  pidL.SetInput(errorLeft);
+  motL.SetValue(pidL.GetOutput());
 
-  float errorRight = setpointRight - enc2.GetAngularVelocity();
-  pid2.SetInput(errorRight);
-  mot2.SetValue(pid2.GetOutput());
+  float errorRight = setpointRight - encR.GetAngularVelocity();
+  pidR.SetInput(errorRight);
+  motR.SetValue(pidR.GetOutput());
 
   // 50 ms interval odometry pose update
   if((millis() - previousTimeOdometry) >= 50)
   {
-    EstimatePose(enc1.GetAngularVelocity(), enc2.GetAngularVelocity());
-    previousTimeOdometry = millis();
+    EstimatePose(encL.GetAngularVelocity(), encR.GetAngularVelocity());
+    //EstimatePose(6.0, -6.0);
+    
+    /*
+    Serial.print(encL.GetAngularVelocity());
+    Serial.print(",");
+    Serial.println(encR.GetAngularVelocity()); */
+
+    /*
+    Serial.print(X_pos);
+    Serial.print(",");
+    Serial.print(Y_pos);
+    Serial.print(",");
+    Serial.println(theta); 
+    previousTimeOdometry = millis(); */
   }
 
   if((millis() - timeSerialTest) >= 1000)
@@ -134,9 +151,9 @@ void loop() {
   // print angular velocity every 100 ms to the serial connection
   if((millis() - previousTime) > 100)
   {
-    Serial.print(enc1.GetAngularVelocity());
+    Serial.print(encL.GetAngularVelocity());
     Serial.print(",");
-    Serial.println(enc2.GetAngularVelocity());
+    Serial.println(encR.GetAngularVelocity());
     previousTime = millis();
 
   } */
@@ -148,8 +165,8 @@ void loop() {
 
   if(// interval - 50ms)
   {
-    float speed1 = enc1.speed;
-    float speed2 = enc1.speed;
+    float speed1 = encL.speed;
+    float speed2 = encL.speed;
 
     // odemetry(speed1, speed2);
     
@@ -157,13 +174,13 @@ void loop() {
   } */
 
 /*
-  //actualRPM = filter(enc1.GetRPM());
+  //actualRPM = filter(encL.GetRPM());
 
     // output rpm every 1 ms
     delsu
   if((millis() - previousTime2) >= 10)
   {
-    actualRPM = enc1.GetRPM(); //filter();
+    actualRPM = encL.GetRPM(); //filter();
     //filteredRPM = filter(actualRPM);
    previousTime2 = millis(); */
 
@@ -172,7 +189,7 @@ void loop() {
    // Serial.print("errror = ");
     //Serial.println(error, 6); 
 
-    setPWM = pid.Update(error);
+    setPWM = pidL.Update(error);
     //Serial.print("pwm = ");
     //Serial.println(pwmVal, 6); 
     setMotorPWM(setPWM);
@@ -181,10 +198,10 @@ void loop() {
   } 
   */
 
-  enc1.Update();
-  enc2.Update();
-  pid.Update();
-  pid2.Update();
+  encL.Update();
+  encR.Update();
+  pidL.Update();
+  pidR.Update();
   comm.Update();
 }
 
@@ -192,9 +209,9 @@ void loop() {
 
 void encoder1Interrupt()
 {
-  enc1.InterruptTrigger();
+  encL.InterruptTrigger();
 } 
 void encoder2Interrupt()
 {
-  enc2.InterruptTrigger();
+  encR.InterruptTrigger();
 } 

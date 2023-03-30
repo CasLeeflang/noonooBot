@@ -2,6 +2,7 @@
 #define ENCODER_H
 
 #define UPDATE_TIME 50000 // us update time
+#define MOVING_AVERAGE_SIZE 1
 
 
 #include <Arduino.h>
@@ -32,7 +33,8 @@ class Encoder
     //float m_gearRatio;
     //float m_velocity;
     float m_pulsesPerRation;
-    float m_angularVelocity; // rad/s
+    float m_angularVelocity[MOVING_AVERAGE_SIZE]; // rad/s
+    int m_currentBufIndex;
 
     //volatile unsigned long m_lastMicros;
     //volatile unsigned long m_lastDuration;

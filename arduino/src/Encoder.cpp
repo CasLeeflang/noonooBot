@@ -6,6 +6,15 @@ Encoder* Encoder::sEncoder = 0;
 Encoder::Encoder(void)
 {
   sEncoder = this;
+
+
+
+  // clearing the buffer to 0
+  for(int i = 0; i < MOVING_AVERAGE_SIZE; i++)
+  {
+    m_angularVelocity[i] = 0.0;
+  }
+  m_currentBufIndex = 0;
   /*
   m_lastMicros = 0;
   m_lastDuration = 0;
@@ -32,7 +41,12 @@ void Encoder::Init(int pinEncA, int pinEncB, float pulsesPerRotation, bool inver
 
 float Encoder::GetAngularVelocity(void)
 {
-  return m_angularVelocity;
+  float sum = 0.0;
+  for(int k = 0; k < MOVING_AVERAGE_SIZE; k++)
+  {
+    sum += m_angularVelocity[k];
+  }
+  return (sum / MOVING_AVERAGE_SIZE);
 }
 
 void Encoder::Update(void)
@@ -50,13 +64,17 @@ void Encoder::Update(void)
 //                      [                                      rad/s                                ]
 //                       [                               rotations/s                      ]
 // [      rad/s     ]     [                  pulses/s                ]    [pulses/rotation]                
-    m_angularVelocity = ((pulses * ((float)1000000/(float)UPDATE_TIME)) / m_pulsesPerRation) * 2 * PI;
+    m_angularVelocity[m_currentBufIndex] = ((pulses * ((float)1000000/(float)UPDATE_TIME)) / m_pulsesPerRation) * 2 * PI;
 
     if (m_inverse)
     {
-      m_angularVelocity = -m_angularVelocity;
+      m_angularVelocity[m_currentBufIndex] = -m_angularVelocity[m_currentBufIndex];
     }
     
+    // increment the bufcounter 
+    m_currentBufIndex++;
+    m_currentBufIndex = (m_currentBufIndex >= (MOVING_AVERAGE_SIZE)) ? (m_currentBufIndex = 0) : (m_currentBufIndex);
+
     // store the old interval time
     m_previousTime = currentTime;
   }
@@ -66,7 +84,13 @@ void Encoder::Update(void)
 
 float Encoder::GetRPM(void)
 {
-  return (m_angularVelocity / (2 * PI)) * 60;
+  float sum = 0.0;
+  for(int k = 0; k < MOVING_AVERAGE_SIZE; k++)
+  {
+    sum += m_angularVelocity[k];
+  }
+  return ((sum / MOVING_AVERAGE_SIZE) / (2 * PI)) * 60;
+  
   /*
   volatile unsigned long pulses;
   volatile unsigned long currentTime;

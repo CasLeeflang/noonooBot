@@ -5,9 +5,10 @@ float X_pos = 0;
 float Y_pos = 0;
 float theta = 0;
 float prevTheta = 0;
+float omegaThreshold = 0.1 * M_PI;
 
 
-void CommandVelocity(float w, float v, float &leftMotorSpeed, float &rightMotorSpeed) 
+void CommandVelocity(float v, float w, float &leftMotorSpeed, float &rightMotorSpeed) 
 {
   leftMotorSpeed = (v - w * (L / 2)) / r;
   rightMotorSpeed = (v + w * (L / 2)) / r;
@@ -20,13 +21,22 @@ void EstimatePose(float Wl, float Wr)
   double X = r * ((Wr + Wl) / 2) * cos(theta) * diffT;
   double Y = r * ((Wr + Wl) / 2) * sin(theta) * diffT;
 
+  // for speed difference thresholding
+  ((w <= omegaThreshold) && (w >= -omegaThreshold)) ? w = 0 : w = w;
   theta = prevTheta + (w * diffT);
-  if (theta > 2 * M_PI) {
-    theta = theta - 2 * M_PI;
-  }
-  else if (theta < -2 * M_PI) {
-    theta = theta + 2 * M_PI;
-  }
+
+ 
+
+  // limit outtput from 0 to 2 * pi
+  if (theta > 2 * M_PI) 
+  {
+     theta = theta - 2 * M_PI;
+   }
+   else if (theta < 0.0) 
+   { //
+     theta = theta + 2 * M_PI;
+   }
+
   prevTheta = theta;
   Y_pos = Y_pos + Y;
   X_pos = X_pos + X;
