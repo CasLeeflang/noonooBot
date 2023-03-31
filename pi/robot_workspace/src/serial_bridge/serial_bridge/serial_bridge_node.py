@@ -7,31 +7,35 @@ import struct
 
 class serialBridgeNode(Node):
 
-    logSerialWrite = False
-    logSerialRead = True
+  
 
     def __init__(self):
         super().__init__('serial_bridge_node')
 
+        self.logSerialWrite = False
+        self.logSerialRead = True
         self.serial_port = '/dev/ttyACM0'
         self.serial_msg_length = 14
         self.serial_com_time = 0.05
+        self.baudrate = 115200
 
-        # ROS topic --[data]--> Serial device
         self.subscription = self.create_subscription(Twist, 'cmd_vel',
                                                      self.write_serial, 
                                                      10)
 
-        # Serial device --[data]--> ROS topic
         self.publisher = self.create_publisher(Odometry, 
                                                'odom', 
                                                10)
 
-        self.timer = self.create_timer(self.serial_com_time, self.read_serial)
+        self.timer = self.create_timer(self.serial_com_time, 
+                                       self.read_serial)
+        
+        self.publisher
+        self.subscription
 
         self.get_logger().info('Initializing serial bridge node')
         self.ser = serial.Serial(self.serial_port)
-        self.ser.baudrate = 115200
+        self.ser.baudrate = self.baudrate
         self.ser.reset_input_buffer()
 
     def unpack_serial_msg(msg):
@@ -44,16 +48,18 @@ class serialBridgeNode(Node):
         odometry_msg.pose.pose.orientation.z = struct.unpack(
             '<f', msg[8:12])[0]
         return odometry_msg
-
-    def write_serial(self, msg):
-
+    
+    def pack_serial_msg(msg):
         sending = bytearray()
         sending += struct.pack('<f', msg.linear.x)
         sending += struct.pack('<f', msg.angular.z)
         sending.append(0x0d)
         sending.append(0x0a)
+        return sending
 
-        self.ser.write(sending)
+
+    def write_serial(self, msg):
+        self.ser.write(self.pack_serial_msg(msg))
 
         if self.logSerialWrite:
             self.get_logger().info('Linear: "%s"' % msg.linear.x)
