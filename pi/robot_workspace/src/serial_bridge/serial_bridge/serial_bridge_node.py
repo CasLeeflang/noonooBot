@@ -38,25 +38,24 @@ class serialBridgeNode(Node):
         self.ser.baudrate = self.baudrate
         self.ser.reset_input_buffer()
 
-    def unpack_serial_msg(msg):
+    def unpack_serial_msg(message):
         odometry_msg = Odometry()
 
         odometry_msg.pose.pose.position.x = struct.unpack(
-            '<f', msg[0:4])[0]
+            '<f', message[0:4])[0]
         odometry_msg.pose.pose.position.y = struct.unpack(
-            '<f', msg[4:8])[0]
+            '<f', message[4:8])[0]
         odometry_msg.pose.pose.orientation.z = struct.unpack(
-            '<f', msg[8:12])[0]
+            '<f', message[8:12])[0]
         return odometry_msg
     
-    def pack_serial_msg(msg):
+    def pack_serial_msg(message):
         sending = bytearray()
-        sending += struct.pack('<f', msg.linear.x)
-        sending += struct.pack('<f', msg.angular.z)
+        sending += struct.pack('<f', message.linear.x)
+        sending += struct.pack('<f', message.angular.z)
         sending.append(0x0d)
         sending.append(0x0a)
         return sending
-
 
     def write_serial(self, msg):
         self.ser.write(self.pack_serial_msg(msg))
