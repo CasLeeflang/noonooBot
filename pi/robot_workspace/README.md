@@ -2,6 +2,10 @@
 
 ## Commands
 
+### Build
+
+`noonoobuild`
+
 ### Launch
 
 `noonoolaunch`
