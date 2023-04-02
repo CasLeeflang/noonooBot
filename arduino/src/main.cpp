@@ -56,10 +56,6 @@ unsigned long previousTimeOdometry;
 unsigned long timeSerialTest;
 
 
-
-// global odemetry variables
-// float 
-
 void setup() {
 
 
