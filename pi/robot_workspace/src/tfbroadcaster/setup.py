@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'cv2serial'
+package_name = 'tfbroadcaster'
 
 setup(
     name=package_name,
@@ -8,17 +8,19 @@ setup(
     packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages',
-         ['resource/' + package_name]),
+            ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='cas',
-    maintainer_email='cas@todo.todo',
+    maintainer_email='466933@student.fontys.nl',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': ['node = cv2serial.cv_node:main'],
+        'console_scripts': [
+            'broadcaster = tfbroadcaster.tfbroadcaster_node:main',        
+        ],
     },
 )
