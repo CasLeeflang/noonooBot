@@ -51,6 +51,7 @@ float setPWM;
 
 unsigned long previousTime;
 unsigned long previousTime2;
+unsigned long previousPrintTime;
 
 unsigned long previousTimeOdometry;
 unsigned long timeSerialTest;
@@ -66,8 +67,8 @@ void setup() {
   comm.SetCommunicationVars(&X_pos, &Y_pos, &theta, &linearVel, &rotationVel);
   //comm.SetCommunicationVars(&dummyvaltx1, &dummyvaltx2, &dummyvaltx3, &linearVel, &rotationVel);
 
-  encL.Init(encA_pin, encB_pin, 320, false); 
-  encR.Init(encA2_pin, encB2_pin, 320, false);
+  encL.Init(encA_pin, encB_pin, 320, false); //320
+  encR.Init(encA2_pin, encB2_pin, 320, false); //320
   attachInterrupt(digitalPinToInterrupt(encA_pin), encoder1Interrupt, RISING);
   attachInterrupt(digitalPinToInterrupt(encA2_pin), encoder2Interrupt, RISING);
   
@@ -88,7 +89,7 @@ void loop() {
   CommandVelocity(linearVel, rotationVel, setpointLeft, setpointRight);
   //CommandVelocity(0.25, 0.0, setpointLeft, setpointRight);
   //setpointLeft = 2.0;
- // setpointRight = 2.0;
+  //setpointRight = 2.0;
 
 
   // PID CONTROL var passing
@@ -105,29 +106,40 @@ void loop() {
   //motR.SetValue(-50);
 
 
-  // 50 ms interval odometry pose update
-  if((millis() - previousTimeOdometry) >= 50)
-  {
-    EstimatePose(encL.GetAngularVelocity(), encR.GetAngularVelocity());
-    //EstimatePose(6.0, -6.0);
+  // DEBUG PRINTING
+  /*
+  if((millis() - previousPrintTime) >= 10)
+  { 
     
-    /*
     Serial.print(encL.GetAngularVelocity());
     Serial.print(",");
     Serial.println(encR.GetAngularVelocity());
-    */ 
+    
 
-    /*
+    
     Serial.print(X_pos);
     Serial.print(",");
     Serial.print(Y_pos);
     Serial.print(",");
     Serial.println(theta); 
-    previousTimeOdometry = millis(); 
-    */
+
+    
+
+    previousPrintTime = millis();
+  } */
+
+
+
+  // 50 ms interval odometry pose update
+  if((millis() - previousTimeOdometry) >= 50)
+  {
+    EstimatePose(encL.GetAngularVelocity(), encR.GetAngularVelocity());
+    //EstimatePose(6.0, -6.0);
+    previousTimeOdometry = millis();
   } 
 
 
+  // flash onboard led to show sign of life
   if((millis() - timeSerialTest) >= 1000)
   {
     static bool led = false;
