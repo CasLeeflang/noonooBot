@@ -1,0 +1,26 @@
+<robot name="booty">
+  <link name="baseLink" />
+  <link name="WheelLeft" />
+  <link name="WheelRight" />
+  <link name="LiDAR" />
+
+  <joint name="WheelLeftJoint" type="continuous">
+    <parent link="baseLink"/>
+    <child link ="WheelLeft"/>
+    <origin xyz="-0.010747 -0.12851 0.035977" rpy="0 0 0"/>
+    <axis xyz="-0.0 -1.0 0.0"/>
+  </joint>
+
+  <joint name="WheelRightJoint" type="continuous">
+    <parent link="baseLink"/>
+    <child link="WheelRight"/>
+    <origin xyz="-0.010747 0.12949 0.035977" rpy="0 0 0"/>
+    <axis xyz="0.0 1.0 -0.0"/>
+  </joint>
+
+  <joint name="LiDARJoint" type="fixed">
+    <parent link="baseLink"/>
+    <child link="LiDAR"/>
+    <origin xyz="0.011566 0.023659 0.105533" rpy="0 0 0"/>
+  </joint>
+</robot>

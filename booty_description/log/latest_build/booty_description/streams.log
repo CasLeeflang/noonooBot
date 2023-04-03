@@ -1,0 +1,45 @@
+[0.291s] Invoking command in '/home/nick/ros2_ws/src/booty_description': PYTHONPATH=/home/nick/ros2_ws/src/booty_description/build/booty_description/prefix_override:/home/nick/ros2_ws/src/booty_description/install/booty_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/booty_description build --build-base /home/nick/ros2_ws/src/booty_description/build/booty_description/build install --record /home/nick/ros2_ws/src/booty_description/build/booty_description/install.log --install-scripts $base/lib/booty_description --single-version-externally-managed
+[0.398s] /usr/lib/python3/dist-packages/setuptools/dist.py:723: UserWarning: Usage of dash-separated 'script-dir' will not be supported in future versions. Please use the underscore name 'script_dir' instead
+[0.398s]   warnings.warn(
+[0.402s] running egg_info
+[0.402s] creating build/booty_description/booty_description.egg-info
+[0.402s] writing build/booty_description/booty_description.egg-info/PKG-INFO
+[0.402s] writing dependency_links to build/booty_description/booty_description.egg-info/dependency_links.txt
+[0.402s] writing entry points to build/booty_description/booty_description.egg-info/entry_points.txt
+[0.402s] writing requirements to build/booty_description/booty_description.egg-info/requires.txt
+[0.402s] writing top-level names to build/booty_description/booty_description.egg-info/top_level.txt
+[0.403s] writing manifest file 'build/booty_description/booty_description.egg-info/SOURCES.txt'
+[0.404s] reading manifest file 'build/booty_description/booty_description.egg-info/SOURCES.txt'
+[0.404s] writing manifest file 'build/booty_description/booty_description.egg-info/SOURCES.txt'
+[0.404s] running build
+[0.404s] running build_py
+[0.404s] creating /home/nick/ros2_ws/src/booty_description/build/booty_description/build
+[0.404s] creating /home/nick/ros2_ws/src/booty_description/build/booty_description/build/lib
+[0.404s] creating /home/nick/ros2_ws/src/booty_description/build/booty_description/build/lib/booty_description
+[0.404s] copying booty_description/__init__.py -> /home/nick/ros2_ws/src/booty_description/build/booty_description/build/lib/booty_description
+[0.404s] copying booty_description/state_publisher.py -> /home/nick/ros2_ws/src/booty_description/build/booty_description/build/lib/booty_description
+[0.404s] /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+[0.404s]   warnings.warn(
+[0.404s] running install
+[0.405s] running install_lib
+[0.405s] creating /home/nick/ros2_ws/src/booty_description/install/booty_description/lib/python3.10/site-packages/booty_description
+[0.405s] copying /home/nick/ros2_ws/src/booty_description/build/booty_description/build/lib/booty_description/__init__.py -> /home/nick/ros2_ws/src/booty_description/install/booty_description/lib/python3.10/site-packages/booty_description
+[0.405s] copying /home/nick/ros2_ws/src/booty_description/build/booty_description/build/lib/booty_description/state_publisher.py -> /home/nick/ros2_ws/src/booty_description/install/booty_description/lib/python3.10/site-packages/booty_description
+[0.405s] byte-compiling /home/nick/ros2_ws/src/booty_description/install/booty_description/lib/python3.10/site-packages/booty_description/__init__.py to __init__.cpython-310.pyc
+[0.405s] byte-compiling /home/nick/ros2_ws/src/booty_description/install/booty_description/lib/python3.10/site-packages/booty_description/state_publisher.py to state_publisher.cpython-310.pyc
+[0.406s] running install_data
+[0.406s] creating /home/nick/ros2_ws/src/booty_description/install/booty_description/share/ament_index
+[0.406s] creating /home/nick/ros2_ws/src/booty_description/install/booty_description/share/ament_index/resource_index
+[0.406s] creating /home/nick/ros2_ws/src/booty_description/install/booty_description/share/ament_index/resource_index/packages
+[0.406s] copying resource/booty_description -> /home/nick/ros2_ws/src/booty_description/install/booty_description/share/ament_index/resource_index/packages
+[0.406s] copying package.xml -> /home/nick/ros2_ws/src/booty_description/install/booty_description/share/booty_description
+[0.406s] copying launch/display.launch.py -> /home/nick/ros2_ws/src/booty_description/install/booty_description/share/booty_description
+[0.406s] copying launch/gazebo.launch.py -> /home/nick/ros2_ws/src/booty_description/install/booty_description/share/booty_description
+[0.406s] copying launch/demo.launch.py -> /home/nick/ros2_ws/src/booty_description/install/booty_description/share/booty_description
+[0.406s] copying urdf/booty.urdf -> /home/nick/ros2_ws/src/booty_description/install/booty_description/share/booty_description
+[0.406s] running install_egg_info
+[0.407s] Copying build/booty_description/booty_description.egg-info to /home/nick/ros2_ws/src/booty_description/install/booty_description/lib/python3.10/site-packages/booty_description-0.0.0-py3.10.egg-info
+[0.407s] running install_scripts
+[0.418s] Installing state_publisher script to /home/nick/ros2_ws/src/booty_description/install/booty_description/lib/booty_description
+[0.418s] writing list of installed files to '/home/nick/ros2_ws/src/booty_description/build/booty_description/install.log'
+[0.432s] Invoked command in '/home/nick/ros2_ws/src/booty_description' returned '0': PYTHONPATH=/home/nick/ros2_ws/src/booty_description/build/booty_description/prefix_override:/home/nick/ros2_ws/src/booty_description/install/booty_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/booty_description build --build-base /home/nick/ros2_ws/src/booty_description/build/booty_description/build install --record /home/nick/ros2_ws/src/booty_description/build/booty_description/install.log --install-scripts $base/lib/booty_description --single-version-externally-managed
