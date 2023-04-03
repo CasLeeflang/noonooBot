@@ -1,0 +1,39 @@
+[0.403s] Invoking command in '/home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description': PYTHONPATH=/home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/prefix_override:/home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/robot_description build --build-base /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/build install --record /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/install.log --install-scripts $base/lib/robot_description --single-version-externally-managed
+[0.569s] running egg_info
+[0.569s] creating build/robot_description/robot_description.egg-info
+[0.569s] writing build/robot_description/robot_description.egg-info/PKG-INFO
+[0.569s] writing dependency_links to build/robot_description/robot_description.egg-info/dependency_links.txt
+[0.570s] writing entry points to build/robot_description/robot_description.egg-info/entry_points.txt
+[0.570s] writing requirements to build/robot_description/robot_description.egg-info/requires.txt
+[0.570s] writing top-level names to build/robot_description/robot_description.egg-info/top_level.txt
+[0.570s] writing manifest file 'build/robot_description/robot_description.egg-info/SOURCES.txt'
+[0.571s] reading manifest file 'build/robot_description/robot_description.egg-info/SOURCES.txt'
+[0.571s] writing manifest file 'build/robot_description/robot_description.egg-info/SOURCES.txt'
+[0.571s] running build
+[0.572s] running build_py
+[0.572s] creating /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/build
+[0.572s] creating /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/build/lib
+[0.572s] creating /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/build/lib/robot_description
+[0.572s] copying robot_description/__init__.py -> /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/build/lib/robot_description
+[0.572s] copying robot_description/state_publisher.py -> /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/build/lib/robot_description
+[0.572s] running install
+[0.572s] running install_lib
+[0.573s] creating /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/lib/python3.10/site-packages/robot_description
+[0.573s] copying /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/build/lib/robot_description/__init__.py -> /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/lib/python3.10/site-packages/robot_description
+[0.573s] copying /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/build/lib/robot_description/state_publisher.py -> /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/lib/python3.10/site-packages/robot_description
+[0.573s] byte-compiling /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/lib/python3.10/site-packages/robot_description/__init__.py to __init__.cpython-310.pyc
+[0.573s] byte-compiling /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/lib/python3.10/site-packages/robot_description/state_publisher.py to state_publisher.cpython-310.pyc
+[0.574s] running install_data
+[0.574s] creating /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/share/ament_index
+[0.574s] creating /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/share/ament_index/resource_index
+[0.574s] creating /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/share/ament_index/resource_index/packages
+[0.574s] copying resource/robot_description -> /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/share/ament_index/resource_index/packages
+[0.574s] copying package.xml -> /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/share/robot_description
+[0.574s] copying launch/demo.launch.py -> /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/share/robot_description
+[0.574s] copying urdf/robot.urdf -> /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/share/robot_description
+[0.574s] running install_egg_info
+[0.575s] Copying build/robot_description/robot_description.egg-info to /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/lib/python3.10/site-packages/robot_description-0.0.0-py3.10.egg-info
+[0.576s] running install_scripts
+[0.589s] Installing state_publisher script to /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/lib/robot_description
+[0.589s] writing list of installed files to '/home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/install.log'
+[0.610s] Invoked command in '/home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description' returned '0': PYTHONPATH=/home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/prefix_override:/home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/install/robot_description/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base build/robot_description build --build-base /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/build install --record /home/cas/Desktop/noonooBot/pi/robot_workspace/src/robot_description/build/robot_description/install.log --install-scripts $base/lib/robot_description --single-version-externally-managed
