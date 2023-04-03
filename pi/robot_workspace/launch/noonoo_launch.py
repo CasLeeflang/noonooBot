@@ -12,6 +12,11 @@ def generate_launch_description():
              executable='serial_bridge',
              output='screen',
              name='serial_bridge'),
+        Node(package='tfbroadcaster',
+             executable='tfbroadcaster',
+             output='screen',
+             name='tfbroadcaster'
+             ),
         Node(
             name='rplidar_composition',
             package='rplidar_ros',
