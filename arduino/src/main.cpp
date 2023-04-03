@@ -18,8 +18,8 @@
 #define mot_in1_2 4 //  6
 #define mot_in2_2 5  // 7
 
-#define Kp 15  // 20
-#define Ki 80 // 5 //200
+#define Kp 10// 15  // 20
+#define Ki 50 // 80 //200
 #define Kd 0.00
 #define Km 0.005
 
@@ -34,6 +34,14 @@ Encoder encR;
 PID pidL;
 PID pidR;
 
+// square drive
+int driveCyclus = 0;
+enum e_squareStates
+{
+  FORWARD1, TURNING_RIGHT1, FORWARD2, TURNING_RIGHT2, FORWARD3, TURNING_RIGHT3, FORWARD4, TURNING_RIGHT4
+} driveControlState; 
+unsigned long driveControlStartTime;
+bool driveControlOnEntry = true;
 
 float dummyvaltx1 = 1.0;
 float dummyvaltx2 = 2.0;
@@ -79,6 +87,10 @@ void setup() {
 
   timeSerialTest = millis();  
   pinMode(LED_BUILTIN, OUTPUT);
+
+
+  driveControlState = FORWARD1;
+  driveControlStartTime = millis();
 }
 
 
@@ -88,9 +100,144 @@ void loop() {
   // get the current serial commanding velocity's and convert them to setpoints for the left/right motor
   CommandVelocity(linearVel, rotationVel, setpointLeft, setpointRight);
   //CommandVelocity(0.25, 0.0, setpointLeft, setpointRight);
-  //setpointLeft = 2.0;
-  //setpointRight = 2.0;
+  //setpointLeft = 5.555555;
+  //setpointRight = 5.555555;
 
+
+  /*
+  
+  // manual square drive control
+  switch (driveControlState)
+  {
+
+  case FORWARD1:
+  if (driveControlOnEntry)
+  {
+    CommandVelocity(0.25, 0, setpointLeft, setpointRight);
+    driveControlOnEntry = false;
+  }
+  
+  if(X_pos >= 1.0)
+  {
+    driveControlState = TURNING_RIGHT1;
+    driveControlOnEntry = true;
+    driveControlStartTime = millis();
+  }
+  break;
+  
+  case TURNING_RIGHT1:
+    if (driveControlOnEntry)
+    {
+      CommandVelocity(0.0, -0.785, setpointLeft, setpointRight);
+      driveControlOnEntry = false;
+    }
+    
+    if((theta <= 4.71238) && (theta > 1.0))
+    {
+      driveControlState = FORWARD2;
+      driveControlOnEntry = true;
+      driveControlStartTime = millis();
+    }
+    break;
+
+
+  case FORWARD2:
+  if (driveControlOnEntry)
+  {
+    CommandVelocity(0.25, 0, setpointLeft, setpointRight);
+    driveControlOnEntry = false;
+  }
+  
+  if(Y_pos <= -1.0)
+  {
+    driveControlState = TURNING_RIGHT2;
+    driveControlOnEntry = true;
+    driveControlStartTime = millis();
+  }
+  break;
+  
+  case TURNING_RIGHT2:
+    if (driveControlOnEntry)
+    {
+      CommandVelocity(0.0, -0.785, setpointLeft, setpointRight);
+      driveControlOnEntry = false;
+    }
+    
+    if((theta <= 3.14159) && (theta > 1.0))
+    {
+      driveControlState = FORWARD3;
+      driveControlOnEntry = true;
+      driveControlStartTime = millis();
+    }
+    break;
+
+  case FORWARD3:
+    if (driveControlOnEntry)
+    {
+      CommandVelocity(0.25, 0, setpointLeft, setpointRight);
+      driveControlOnEntry = false;
+    }
+    
+    if(X_pos <= 0.0)
+    {
+      driveControlState = TURNING_RIGHT3;
+      driveControlOnEntry = true;
+      driveControlStartTime = millis();
+    }
+    break;
+
+  case TURNING_RIGHT3:
+    if (driveControlOnEntry)
+    {
+      CommandVelocity(0.0, -0.785, setpointLeft, setpointRight);
+      driveControlOnEntry = false;
+    }
+    
+    if((theta <= 1.5708) && (theta > 0.5))
+    {
+      driveControlState = FORWARD4;
+      driveControlOnEntry = true;
+      driveControlStartTime = millis();
+    }
+    break;
+  
+    case FORWARD4:
+    if (driveControlOnEntry)
+    {
+      CommandVelocity(0.25, 0, setpointLeft, setpointRight);
+      driveControlOnEntry = false;
+    }
+    
+    if(Y_pos >= 0.0)
+    {
+      driveControlState = TURNING_RIGHT4;
+      driveControlOnEntry = true;
+      driveControlStartTime = millis();
+    }
+    break;
+
+  case TURNING_RIGHT4:
+    if (driveControlOnEntry)
+    {
+      CommandVelocity(0.0, -0.785, setpointLeft, setpointRight);
+      driveControlOnEntry = false;
+    }
+    
+    if((theta == 0.0) || (theta > 6) )
+    {
+      driveControlState = FORWARD1;
+      driveControlOnEntry = true;
+      driveControlStartTime = millis();
+    }
+    break;
+
+
+
+  default:
+    CommandVelocity(0.0, 0.0, setpointLeft, setpointRight);
+    break;
+  } 
+  */
 
   // PID CONTROL var passing
   float errorLeft = setpointLeft - encL.GetAngularVelocity();
@@ -107,26 +254,29 @@ void loop() {
 
 
   // DEBUG PRINTING
-  /*
-  if((millis() - previousPrintTime) >= 10)
-  { 
+  
+  //if((millis() - previousPrintTime) >= 10)
+  //{ 
     
+    /*
     Serial.print(encL.GetAngularVelocity());
     Serial.print(",");
     Serial.println(encR.GetAngularVelocity());
-    
+    */
 
     
+    /*
     Serial.print(X_pos);
     Serial.print(",");
     Serial.print(Y_pos);
     Serial.print(",");
     Serial.println(theta); 
+    */
 
     
 
-    previousPrintTime = millis();
-  } */
+   // previousPrintTime = millis();
+  //} 
 
 
 
@@ -147,6 +297,8 @@ void loop() {
     digitalWrite(LED_BUILTIN, led);
     timeSerialTest = millis();
   }
+
+
 
 
 

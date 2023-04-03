@@ -74,7 +74,7 @@ void Encoder::Update(void)
 
     // angular displacement calculation
     m_total_pulses += pulses;
-    m_angularDisplacement = ((float)m_total_pulses / m_pulsesPerRation) * 2.0F * PI; 
+    m_angularDisplacement = ((float)m_total_pulses / m_pulsesPerRation) * 2.0 * PI; 
 
 
 
@@ -82,7 +82,7 @@ void Encoder::Update(void)
 //                                        [                                            rad/s                                    ]
 //                                         [                                      rotations/s                      ]
 // [      rad/s     ]                       [                  pulses/s                      ]    [pulses/rotation]                
-    m_angularVelocity[m_currentBufIndex] = (((float)pulses * m_toSecMult) / m_pulsesPerRation) * 2.0F * PI;
+    m_angularVelocity[m_currentBufIndex] = (((float)pulses * m_toSecMult) / m_pulsesPerRation) * 4.0F * PI;
 
     if (m_inverse)
     {
