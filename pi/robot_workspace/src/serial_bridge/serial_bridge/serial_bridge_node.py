@@ -38,28 +38,15 @@ class serialBridgeNode(Node):
         self.ser.baudrate = self.baudrate
         self.ser.reset_input_buffer()
 
-    def unpack_serial_msg(msg):
-        odometry_msg = Odometry()
+    def write_serial(self, msg):
 
-        odometry_msg.pose.pose.position.x = struct.unpack(
-            '<f', msg[0:4])[0]
-        odometry_msg.pose.pose.position.y = struct.unpack(
-            '<f', msg[4:8])[0]
-        odometry_msg.pose.pose.orientation.z = struct.unpack(
-            '<f', msg[8:12])[0]
-        return odometry_msg
-    
-    def pack_serial_msg(msg):
         sending = bytearray()
         sending += struct.pack('<f', msg.linear.x)
         sending += struct.pack('<f', msg.angular.z)
         sending.append(0x0d)
         sending.append(0x0a)
-        return sending
 
-
-    def write_serial(self, msg):
-        self.ser.write(self.pack_serial_msg(msg))
+        self.ser.write(sending)
 
         if self.logSerialWrite:
             self.get_logger().info('Linear: "%s"' % msg.linear.x)
@@ -69,7 +56,14 @@ class serialBridgeNode(Node):
         while (self.ser.in_waiting >= self.serial_msg_length):
             received_message = self.ser.read_until(b'\r\n')
 
-            odometry_msg = self.unpack_serial_msg(received_message)
+            odometry_msg = Odometry()
+
+            odometry_msg.pose.pose.position.x = struct.unpack(
+                '<f', received_message[0:4])[0]
+            odometry_msg.pose.pose.position.y = struct.unpack(
+                '<f', received_message[4:8])[0]
+            odometry_msg.pose.pose.orientation.z = struct.unpack(
+                '<f', received_message[8:12])[0]
 
             self.publisher.publish(odometry_msg)
 
