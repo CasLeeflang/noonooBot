@@ -10,22 +10,30 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
     urdf_file_name = 'robot.urdf'
-    urdf = os.path.join(
-        get_package_share_directory('robot_description'),
-        urdf_file_name)
+    urdf = os.path.join(get_package_share_directory('robot_description'),
+                        urdf_file_name)
     with open(urdf, 'r') as infp:
         robot_desc = infp.read()
 
     return LaunchDescription([
         DeclareLaunchArgument(
-        'use_sim_time',
-        default_value='false',
-        description='Use simulation (Gazebo) clock if true'),
-   
+            'use_sim_time',
+            default_value='false',
+            description='Use simulation (Gazebo) clock if true'),
+        Node(package='tfbroadcaster',
+             executable='broadcaster',
+             output='screen',
+             name='tfbroadcaster',
+             parameters=[{
+                 'use_sim_time': use_sim_time,
+             }]),
         Node(package='serial_bridge',
              executable='serial_bridge',
              output='screen',
-             name='serial_bridge'),
+             name='serial_bridge',
+             parameters=[{
+                 'use_sim_time': use_sim_time,
+             }]),
         Node(
             name='rplidar_composition',
             package='rplidar_ros',
@@ -37,14 +45,15 @@ def generate_launch_description():
                 'frame_id': 'laser',
                 'inverted': False,
                 'angle_compensate': True,
-            }],
-        ),
-        Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            name='robot_state_publisher',
-            output='screen',
-            parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
-            arguments=[urdf]
-        ),
+                'use_sim_time': use_sim_time,
+            }]),
+        Node(package='robot_state_publisher',
+             executable='robot_state_publisher',
+             name='robot_state_publisher',
+             output='screen',
+             parameters=[{
+                 'use_sim_time': use_sim_time,
+                 'robot_description': robot_desc
+             }],
+             arguments=[urdf]),
     ])

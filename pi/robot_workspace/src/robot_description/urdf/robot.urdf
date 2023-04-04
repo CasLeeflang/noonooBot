@@ -11,13 +11,13 @@
     <origin xyz="0 0 0.035977" rpy="0 0 0"/>
   </joint>
 
-  <joint name="wheel_leftjoint" type="continuous">
+  <joint name="wheel_leftjoint" type="fixed">
     <parent link="base_link"/>
     <child link ="wheel_left"/>
     <origin xyz="0 -0.12851 0.0" rpy="0 0 0"/>
   </joint>
 
-  <joint name="wheel_rightjoint" type="continuous">
+  <joint name="wheel_rightjoint" type="fixed">
     <parent link="base_link"/>
     <child link="wheel_right"/>
     <origin xyz="0 0.12949 0.0" rpy="0 0 0"/>

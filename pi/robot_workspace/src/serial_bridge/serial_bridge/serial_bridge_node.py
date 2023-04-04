@@ -5,9 +5,8 @@ from nav_msgs.msg import Odometry
 import serial
 import struct
 
-class serialBridgeNode(Node):
 
-  
+class serialBridgeNode(Node):
 
     def __init__(self):
         super().__init__('serial_bridge_node')
@@ -20,16 +19,12 @@ class serialBridgeNode(Node):
         self.baudrate = 115200
 
         self.subscription = self.create_subscription(Twist, 'cmd_vel',
-                                                     self.write_serial, 
-                                                     10)
+                                                     self.write_serial, 10)
 
-        self.publisher = self.create_publisher(Odometry, 
-                                               'odom', 
-                                               10)
+        self.publisher = self.create_publisher(Odometry, 'odom', 10)
 
-        self.timer = self.create_timer(self.serial_com_time, 
-                                       self.read_serial)
-        
+        self.timer = self.create_timer(self.serial_com_time, self.read_serial)
+
         self.publisher
         self.subscription
 
@@ -37,7 +32,6 @@ class serialBridgeNode(Node):
         self.ser = serial.Serial(self.serial_port)
         self.ser.baudrate = self.baudrate
         self.ser.reset_input_buffer()
-
 
     def write_serial(self, msg):
 
@@ -62,8 +56,12 @@ class serialBridgeNode(Node):
                 '<f', received_message[0:4])[0]
             odometry_msg.pose.pose.position.y = struct.unpack(
                 '<f', received_message[4:8])[0]
+            odometry_msg.pose.pose.position.z = 0.0
+            odometry_msg.pose.pose.orientation.x = 0.0
+            odometry_msg.pose.pose.orientation.y = 0.0
             odometry_msg.pose.pose.orientation.z = struct.unpack(
                 '<f', received_message[8:12])[0]
+            odometry_msg.pose.pose.orientation.w = 1.0
 
             self.publisher.publish(odometry_msg)
 
