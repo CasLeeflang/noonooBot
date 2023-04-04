@@ -4,6 +4,7 @@ from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 import serial
 import struct
+import numpy as np
 
 
 class serialBridgeNode(Node):
@@ -57,11 +58,33 @@ class serialBridgeNode(Node):
             odometry_msg.pose.pose.position.y = struct.unpack(
                 '<f', received_message[4:8])[0]
             odometry_msg.pose.pose.position.z = 0.0
-            odometry_msg.pose.pose.orientation.x = 0.0
-            odometry_msg.pose.pose.orientation.y = 0.0
-            odometry_msg.pose.pose.orientation.z = struct.unpack(
-                '<f', received_message[8:12])[0]
-            odometry_msg.pose.pose.orientation.w = 1.0
+            # odometry_msg.pose.pose.orientation.x = 0.0
+            # odometry_msg.pose.pose.orientation.y = 0.0
+            # odometry_msg.pose.pose.orientation.z = struct.unpack(
+            #     '<f', received_message[8:12])[0]
+            # odometry_msg.pose.pose.orientation.w = 1.0
+
+            roll = 0.0
+            pitch = 0.0
+            yaw = struct.unpack('<f', received_message[8:12])[0]
+
+            qx = np.sin(roll / 2) * np.cos(pitch / 2) * np.cos(
+                yaw / 2) - np.cos(roll / 2) * np.sin(pitch / 2) * np.sin(
+                    yaw / 2)
+            qy = np.cos(roll / 2) * np.sin(pitch / 2) * np.cos(
+                yaw / 2) + np.sin(roll / 2) * np.cos(pitch / 2) * np.sin(
+                    yaw / 2)
+            qz = np.cos(roll / 2) * np.cos(pitch / 2) * np.sin(
+                yaw / 2) - np.sin(roll / 2) * np.sin(pitch / 2) * np.cos(
+                    yaw / 2)
+            qw = np.cos(roll / 2) * np.cos(pitch / 2) * np.cos(
+                yaw / 2) + np.sin(roll / 2) * np.sin(pitch / 2) * np.sin(
+                    yaw / 2)
+
+            odometry_msg.pose.pose.orientation.x = qx
+            odometry_msg.pose.pose.orientation.y = qy
+            odometry_msg.pose.pose.orientation.z = qz
+            odometry_msg.pose.pose.orientation.w = qw
 
             self.publisher.publish(odometry_msg)
 
