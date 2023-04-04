@@ -20,8 +20,6 @@ aka
 
 aka
 
-`ros2 launch slam_toolbox online_sync_launch.py`
-
 `ros2 run slam_toolbox sync_slam_toolbox_node use_sim_time:=false max_laser_range:=12`
 
 #### Navigation
