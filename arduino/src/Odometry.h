@@ -7,11 +7,11 @@
 #define L 0.285
 #define r 0.045
 #define diffT 0.05
+
+// referencing of the local variables in Odometry.cpp
 extern float X_pos;
 extern float Y_pos;
 extern float theta;
-
-
 
 
 // function to translate robot orientated velocity's towards left/right motor angular velocity's (differential drive)

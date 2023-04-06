@@ -47,50 +47,5 @@ void PID::Update(void)
     m_controllerData.previousOutput = m_controllerData.currentOutput;
 
     m_previousTime = currentTime;
-
-  //cv = cv1 + (kp + kd/tm)*error + (-kp + ki*tm -2*kd/tm)*error1 +(kd/tm)*error2;
-  //cv = error * kp; 
-  //cv1 = cv;
-  //error2 = error1;
-  //error1 = error;
-
-
-    //m_previousTime = currentTime;
-    /*
-    float p = m_controllerData.currentError * m_gainP;
-    
-    float i = ((m_gainI * m_ts) / 2.0) * (m_controllerData.currentError + m_controllerData.previousError);
-    i = i + m_controllerData.previousIntegral;
-    
-    float limitIntMax, limitIntMin;
-    if(p > 0.0)
-    {
-      // positive number
-      limitIntMax = ((m_limit - p) < 0.0) ? (0.0) : (m_limit - p);
-      limitIntMin = -m_limit;
-    }
-    else
-    {
-      // negative number
-      limitIntMax = m_limit;
-      limitIntMin = ((-m_limit - p) > 0.0) ? (0.0) : (-m_limit - p);
-    }
-    i = (i > limitIntMax) ? (limitIntMax) : (i);
-    i = (i < limitIntMin) ? (limitIntMin) : (i);
-
-
-    // store the current control data in the old one
-    m_controllerData.previousIntegral = i;
-    m_controllerData.previousError = m_controllerData.currentError;
-
-    // make sure output stays in defined limit
-    float output = p + i;
-    output = (output < -m_limit) ? (-m_limit) : (output); 
-    output = (output > m_limit) ? (m_limit) : (output); 
-
-    m_controllerData.currentOutput = output;
-    */
-
-   
   }
 }

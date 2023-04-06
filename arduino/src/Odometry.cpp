@@ -17,11 +17,11 @@ void CommandVelocity(float v, float w, float &leftMotorSpeed, float &rightMotorS
 void EstimatePose(float Wl, float Wr)
 {
   double w = r * ((Wr - Wl) / L);
-  //Serial.println(w);
   double X = r * ((Wr + Wl) / 2) * cos(theta) * diffT;
   double Y = r * ((Wr + Wl) / 2) * sin(theta) * diffT;
 
-  // for speed difference thresholding
+  // Speed difference thresholding
+  // set omega to 0.0 when speed difference is in the threshold region 
   ((w <= omegaThreshold) && (w >= -omegaThreshold)) ? w = 0 : w = w;
   theta = prevTheta + (w * diffT);
 
@@ -33,7 +33,7 @@ void EstimatePose(float Wl, float Wr)
      theta = theta - 2 * M_PI;
    }
    else if (theta < 0.0) 
-   { //
+   { 
      theta = theta + 2 * M_PI;
    }
 

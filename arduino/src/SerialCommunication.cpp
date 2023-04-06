@@ -64,8 +64,7 @@ void SerialCommunication::Update(void)
   // rx of the data
   if (Serial.available())
   {
-    //m_incomingDataBuff[m_receivedFrameLength] = Serial.read(); 
-
+    
     // read all new incoming bytes
     int incomingByte = Serial.read();
     while (incomingByte != -1)
@@ -93,11 +92,6 @@ void SerialCommunication::Update(void)
         
       if(m_receivedFrameLength == 10)
       {
-        /*
-        digitalWrite(LED_BUILTIN, HIGH);
-        delay(500);
-        digitalWrite(LED_BUILTIN, LOW);
-        delay(500); */
         floatUnion_t receiveLinVel;
         floatUnion_t receiveAngVel;
 
@@ -113,9 +107,6 @@ void SerialCommunication::Update(void)
 
         *m_rx_linvel = receiveLinVel.number;
         *m_rx_angvel = receiveAngVel.number;
-
-
-
         
       }
       // reset buffer length to 0
